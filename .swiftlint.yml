@@ -1,0 +1,14 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace # use it because auto indent create withespace
+  - line_length
+  - trailing_newline
+  - nesting
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - SpaceOdyssey
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+nesting:
+  type_level:
+    warning: 2
