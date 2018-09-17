@@ -1,0 +1,6 @@
+framework module Pods_SpaceOdysseyUITests {
+  umbrella header "Pods-SpaceOdysseyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

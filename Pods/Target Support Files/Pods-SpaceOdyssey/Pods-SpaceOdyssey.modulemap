@@ -1,0 +1,6 @@
+framework module Pods_SpaceOdyssey {
+  umbrella header "Pods-SpaceOdyssey-umbrella.h"
+
+  export *
+  module * { export * }
+}

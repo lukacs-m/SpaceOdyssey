@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		282EA38D708FE6E256EB7610 /* Pods_SpaceOdyssey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */; };
+		5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDCF21505FD000460572 /* AppDelegate.swift */; };
+		5B6FDDD221505FD000460572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD121505FD000460572 /* ViewController.swift */; };
+		5B6FDDD521505FD000460572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD321505FD000460572 /* Main.storyboard */; };
+		5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD621505FD100460572 /* Assets.xcassets */; };
+		5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */; };
+		5B6FDDE521505FD100460572 /* SpaceOdysseyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */; };
+		5B6FDDF021505FD100460572 /* SpaceOdysseyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */; };
+		C8D793416D63662179A00771 /* Pods_SpaceOdysseyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B267D35F1BD909340D3BFF /* Pods_SpaceOdysseyUITests.framework */; };
+		E6C5424349B385F6A2973949 /* Pods_SpaceOdysseyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041BBB173F48FEC0B31BD057 /* Pods_SpaceOdysseyTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B6FDDE121505FD100460572 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B6FDDC421505FD000460572 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B6FDDCB21505FD000460572;
+			remoteInfo = SpaceOdyssey;
+		};
+		5B6FDDEC21505FD100460572 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B6FDDC421505FD000460572 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B6FDDCB21505FD000460572;
+			remoteInfo = SpaceOdyssey;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		041BBB173F48FEC0B31BD057 /* Pods_SpaceOdysseyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdysseyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A304F093E1DB6E1097382A /* Pods-SpaceOdysseyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyTests/Pods-SpaceOdysseyTests.release.xcconfig"; sourceTree = "<group>"; };
+		37F4A193E2BA237AB17D5764 /* Pods-SpaceOdysseyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyUITests/Pods-SpaceOdysseyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FB642BCF79B369173900348 /* Pods-SpaceOdyssey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdyssey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdyssey/Pods-SpaceOdyssey.debug.xcconfig"; sourceTree = "<group>"; };
+		5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdyssey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceOdyssey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6FDDCF21505FD000460572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B6FDDD121505FD000460572 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B6FDDD421505FD000460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B6FDDD621505FD100460572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B6FDDD921505FD100460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B6FDDDB21505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6FDDE021505FD100460572 /* SpaceOdysseyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceOdysseyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceOdysseyTests.swift; sourceTree = "<group>"; };
+		5B6FDDE621505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6FDDEB21505FD100460572 /* SpaceOdysseyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceOdysseyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceOdysseyUITests.swift; sourceTree = "<group>"; };
+		5B6FDDF121505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66B267D35F1BD909340D3BFF /* Pods_SpaceOdysseyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdysseyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1BF2DEC16B9160467F89C9 /* Pods-SpaceOdyssey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdyssey.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdyssey/Pods-SpaceOdyssey.release.xcconfig"; sourceTree = "<group>"; };
+		8FFEC899882F8DEF7E71F4E9 /* Pods-SpaceOdysseyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyUITests/Pods-SpaceOdysseyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B9C0B0CC767DF207EFB66715 /* Pods-SpaceOdysseyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyTests/Pods-SpaceOdysseyTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B6FDDC921505FD000460572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				282EA38D708FE6E256EB7610 /* Pods_SpaceOdyssey.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDDD21505FD100460572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6C5424349B385F6A2973949 /* Pods_SpaceOdysseyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDE821505FD100460572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8D793416D63662179A00771 /* Pods_SpaceOdysseyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49B487A76F52B3958BAE57D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FB642BCF79B369173900348 /* Pods-SpaceOdyssey.debug.xcconfig */,
+				6D1BF2DEC16B9160467F89C9 /* Pods-SpaceOdyssey.release.xcconfig */,
+				B9C0B0CC767DF207EFB66715 /* Pods-SpaceOdysseyTests.debug.xcconfig */,
+				14A304F093E1DB6E1097382A /* Pods-SpaceOdysseyTests.release.xcconfig */,
+				37F4A193E2BA237AB17D5764 /* Pods-SpaceOdysseyUITests.debug.xcconfig */,
+				8FFEC899882F8DEF7E71F4E9 /* Pods-SpaceOdysseyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B6FDDC321505FD000460572 = {
+			isa = PBXGroup;
+			children = (
+				5B6FDDCE21505FD000460572 /* SpaceOdyssey */,
+				5B6FDDE321505FD100460572 /* SpaceOdysseyTests */,
+				5B6FDDEE21505FD100460572 /* SpaceOdysseyUITests */,
+				5B6FDDCD21505FD000460572 /* Products */,
+				49B487A76F52B3958BAE57D3 /* Pods */,
+				B92D31E39ECF392EE8D97686 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5B6FDDCD21505FD000460572 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */,
+				5B6FDDE021505FD100460572 /* SpaceOdysseyTests.xctest */,
+				5B6FDDEB21505FD100460572 /* SpaceOdysseyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B6FDDCE21505FD000460572 /* SpaceOdyssey */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FDDCF21505FD000460572 /* AppDelegate.swift */,
+				5B6FDDD121505FD000460572 /* ViewController.swift */,
+				5B6FDDD321505FD000460572 /* Main.storyboard */,
+				5B6FDDD621505FD100460572 /* Assets.xcassets */,
+				5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */,
+				5B6FDDDB21505FD100460572 /* Info.plist */,
+			);
+			path = SpaceOdyssey;
+			sourceTree = "<group>";
+		};
+		5B6FDDE321505FD100460572 /* SpaceOdysseyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */,
+				5B6FDDE621505FD100460572 /* Info.plist */,
+			);
+			path = SpaceOdysseyTests;
+			sourceTree = "<group>";
+		};
+		5B6FDDEE21505FD100460572 /* SpaceOdysseyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */,
+				5B6FDDF121505FD100460572 /* Info.plist */,
+			);
+			path = SpaceOdysseyUITests;
+			sourceTree = "<group>";
+		};
+		B92D31E39ECF392EE8D97686 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */,
+				041BBB173F48FEC0B31BD057 /* Pods_SpaceOdysseyTests.framework */,
+				66B267D35F1BD909340D3BFF /* Pods_SpaceOdysseyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B6FDDCB21505FD000460572 /* SpaceOdyssey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B6FDDF421505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdyssey" */;
+			buildPhases = (
+				90961CA83A7E63B61C85A0A8 /* [CP] Check Pods Manifest.lock */,
+				5B6FDDC821505FD000460572 /* Sources */,
+				5B6FDDC921505FD000460572 /* Frameworks */,
+				5B6FDDCA21505FD000460572 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpaceOdyssey;
+			productName = SpaceOdyssey;
+			productReference = 5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B6FDDDF21505FD100460572 /* SpaceOdysseyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B6FDDF721505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdysseyTests" */;
+			buildPhases = (
+				DA3F1E8A578EF2ADE3C2D496 /* [CP] Check Pods Manifest.lock */,
+				5B6FDDDC21505FD100460572 /* Sources */,
+				5B6FDDDD21505FD100460572 /* Frameworks */,
+				5B6FDDDE21505FD100460572 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B6FDDE221505FD100460572 /* PBXTargetDependency */,
+			);
+			name = SpaceOdysseyTests;
+			productName = SpaceOdysseyTests;
+			productReference = 5B6FDDE021505FD100460572 /* SpaceOdysseyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5B6FDDEA21505FD100460572 /* SpaceOdysseyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B6FDDFA21505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdysseyUITests" */;
+			buildPhases = (
+				AE1EC8E25BA0A6F6BE741B42 /* [CP] Check Pods Manifest.lock */,
+				5B6FDDE721505FD100460572 /* Sources */,
+				5B6FDDE821505FD100460572 /* Frameworks */,
+				5B6FDDE921505FD100460572 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B6FDDED21505FD100460572 /* PBXTargetDependency */,
+			);
+			name = SpaceOdysseyUITests;
+			productName = SpaceOdysseyUITests;
+			productReference = 5B6FDDEB21505FD100460572 /* SpaceOdysseyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B6FDDC421505FD000460572 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = martin;
+				TargetAttributes = {
+					5B6FDDCB21505FD000460572 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					5B6FDDDF21505FD100460572 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 5B6FDDCB21505FD000460572;
+					};
+					5B6FDDEA21505FD100460572 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 5B6FDDCB21505FD000460572;
+					};
+				};
+			};
+			buildConfigurationList = 5B6FDDC721505FD000460572 /* Build configuration list for PBXProject "SpaceOdyssey" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B6FDDC321505FD000460572;
+			productRefGroup = 5B6FDDCD21505FD000460572 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B6FDDCB21505FD000460572 /* SpaceOdyssey */,
+				5B6FDDDF21505FD100460572 /* SpaceOdysseyTests */,
+				5B6FDDEA21505FD100460572 /* SpaceOdysseyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B6FDDCA21505FD000460572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */,
+				5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */,
+				5B6FDDD521505FD000460572 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDDE21505FD100460572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDE921505FD100460572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90961CA83A7E63B61C85A0A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceOdyssey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE1EC8E25BA0A6F6BE741B42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceOdysseyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA3F1E8A578EF2ADE3C2D496 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceOdysseyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B6FDDC821505FD000460572 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6FDDD221505FD000460572 /* ViewController.swift in Sources */,
+				5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDDC21505FD100460572 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6FDDE521505FD100460572 /* SpaceOdysseyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B6FDDE721505FD100460572 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6FDDF021505FD100460572 /* SpaceOdysseyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B6FDDE221505FD100460572 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B6FDDCB21505FD000460572 /* SpaceOdyssey */;
+			targetProxy = 5B6FDDE121505FD100460572 /* PBXContainerItemProxy */;
+		};
+		5B6FDDED21505FD100460572 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B6FDDCB21505FD000460572 /* SpaceOdyssey */;
+			targetProxy = 5B6FDDEC21505FD100460572 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B6FDDD321505FD000460572 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6FDDD421505FD000460572 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6FDDD921505FD100460572 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B6FDDF221505FD100460572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B6FDDF321505FD100460572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B6FDDF521505FD100460572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB642BCF79B369173900348 /* Pods-SpaceOdyssey.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdyssey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdyssey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B6FDDF621505FD100460572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1BF2DEC16B9160467F89C9 /* Pods-SpaceOdyssey.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdyssey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdyssey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5B6FDDF821505FD100460572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9C0B0CC767DF207EFB66715 /* Pods-SpaceOdysseyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdysseyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceOdyssey.app/SpaceOdyssey";
+			};
+			name = Debug;
+		};
+		5B6FDDF921505FD100460572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14A304F093E1DB6E1097382A /* Pods-SpaceOdysseyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdysseyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceOdyssey.app/SpaceOdyssey";
+			};
+			name = Release;
+		};
+		5B6FDDFB21505FD100460572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37F4A193E2BA237AB17D5764 /* Pods-SpaceOdysseyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdysseyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpaceOdyssey;
+			};
+			name = Debug;
+		};
+		5B6FDDFC21505FD100460572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FFEC899882F8DEF7E71F4E9 /* Pods-SpaceOdysseyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
+				INFOPLIST_FILE = SpaceOdysseyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpaceOdyssey;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B6FDDC721505FD000460572 /* Build configuration list for PBXProject "SpaceOdyssey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6FDDF221505FD100460572 /* Debug */,
+				5B6FDDF321505FD100460572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B6FDDF421505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdyssey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6FDDF521505FD100460572 /* Debug */,
+				5B6FDDF621505FD100460572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B6FDDF721505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdysseyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6FDDF821505FD100460572 /* Debug */,
+				5B6FDDF921505FD100460572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B6FDDFA21505FD100460572 /* Build configuration list for PBXNativeTarget "SpaceOdysseyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6FDDFB21505FD100460572 /* Debug */,
+				5B6FDDFC21505FD100460572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B6FDDC421505FD000460572 /* Project object */;
+}
