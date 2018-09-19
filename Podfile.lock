@@ -12,9 +12,9 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - Nimble (7.3.0)
-  - Nimble-Snapshots (6.8.0):
-    - Nimble-Snapshots/Core (= 6.8.0)
-  - Nimble-Snapshots/Core (6.8.0):
+  - Nimble-Snapshots (6.8.1):
+    - Nimble-Snapshots/Core (= 6.8.1)
+  - Nimble-Snapshots/Core (6.8.1):
     - iOSSnapshotTestCase (~> 4.0)
     - Nimble (~> 7.0)
   - PromiseKit (6.4.0):
@@ -58,7 +58,7 @@ SPEC CHECKSUMS:
   Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Nimble: c8d6a1f463701921c46de965c673e13cafa09196
-  Nimble-Snapshots: b6fd1de31996dfaa7aca7dfed20ee1752903a2d1
+  Nimble-Snapshots: 65bce321fa2f62d70909b90a66a825a3cc4ae773
   PromiseKit: ae3616f45d7bb9bf4ff1e91abc9b7a8c48a340e0
   Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
