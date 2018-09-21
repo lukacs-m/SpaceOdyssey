@@ -11,27 +11,37 @@
 //
 
 import UIKit
+import PromiseKit
 
 protocol HomeBusinessLogic {
-  func doSomething(request: Home.FetchHomeLaunches.Request)
+    func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request)
 }
 
 protocol HomeDataStore {
-  //var name: String { get set }
+    var launches: [Launch]? { get }
 }
 
-class HomeInteractor: HomeBusinessLogic, HomeDataStore {
-  var presenter: HomePresentationLogic?
-  var worker: HomeWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Home.FetchHomeLaunches.Request) {
-    worker = HomeWorker()
-    worker?.doSomeWork()
+final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     
-    let response = Home.FetchHomeLaunches.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: HomePresentationLogic?
+    var worker = HomeWorker()
+    var launches: [Launch]?
+    
+    // MARK: Do something
+    
+    func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
+        
+        var response: Home.FetchHomeLaunches.Response!
+        
+        firstly {
+            worker.launchesDataManager.getLaunches()
+        }.done { launches in
+            self.launches = launches
+            response = Home.FetchHomeLaunches.Response(launches: launches, error: nil)
+        }.catch { error in
+            response = Home.FetchHomeLaunches.Response(launches: nil, error: error)
+        }.finally {
+            self.presenter?.presentFetchHomeData(response: response)
+        }
+    }
 }

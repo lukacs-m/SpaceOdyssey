@@ -15,6 +15,9 @@
 		5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */; };
 		5B6FDDE521505FD100460572 /* SpaceOdysseyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */; };
 		5B6FDDF021505FD100460572 /* SpaceOdysseyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */; };
+		5B8C246A21551E3B00ABEBA0 /* Strings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */; };
+		5B8C246C21551E5700ABEBA0 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */; };
+		5B8C246F215520C700ABEBA0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246E215520C700ABEBA0 /* Alert.swift */; };
 		5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87072152BC1B008163BB /* HomePresenter.swift */; };
 		5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87082152BC1B008163BB /* HomeWorker.swift */; };
 		5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87092152BC1B008163BB /* HomeRouter.swift */; };
@@ -26,7 +29,6 @@
 		5BFF871B2152BC43008163BB /* HomeWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87172152BC43008163BB /* HomeWorkerTests.swift */; };
 		5BFF871C2152BC43008163BB /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87182152BC43008163BB /* HomePresenterTests.swift */; };
 		5BFF871E2152BC68008163BB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF871D2152BC68008163BB /* HomeViewController.xib */; };
-		5BFF87222152BE66008163BB /* TestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87212152BE66008163BB /* TestModels.swift */; };
 		5BFF87252152BF36008163BB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87242152BF36008163BB /* APIManager.swift */; };
 		5BFF87272152BF9C008163BB /* SpaceXApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87262152BF9C008163BB /* SpaceXApi.swift */; };
 		5BFF87292152BFE5008163BB /* SpaceXApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87282152BFE5008163BB /* SpaceXApiMock.swift */; };
@@ -47,6 +49,9 @@
 		5BFF874B2152CE67008163BB /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF874A2152CE67008163BB /* Telemetry.swift */; };
 		5BFF874E2152CFAD008163BB /* CommonDataEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF874D2152CFAD008163BB /* CommonDataEnums.swift */; };
 		5BFF87512152D041008163BB /* CommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87502152D041008163BB /* CommonHelpers.swift */; };
+		5BFF87542152D375008163BB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87532152D375008163BB /* Style.swift */; };
+		5BFF87582153128C008163BB /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87562153128C008163BB /* HomeCollectionViewCell.swift */; };
+		5BFF87592153128C008163BB /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF87572153128C008163BB /* HomeCollectionViewCell.xib */; };
 		C8D793416D63662179A00771 /* Pods_SpaceOdysseyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B267D35F1BD909340D3BFF /* Pods_SpaceOdysseyUITests.framework */; };
 		E6C5424349B385F6A2973949 /* Pods_SpaceOdysseyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041BBB173F48FEC0B31BD057 /* Pods_SpaceOdysseyTests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +92,9 @@
 		5B6FDDEB21505FD100460572 /* SpaceOdysseyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceOdysseyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceOdysseyUITests.swift; sourceTree = "<group>"; };
 		5B6FDDF121505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extensions.swift"; sourceTree = "<group>"; };
+		5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		5B8C246E215520C700ABEBA0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5BFF87072152BC1B008163BB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5BFF87082152BC1B008163BB /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		5BFF87092152BC1B008163BB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -98,7 +106,6 @@
 		5BFF87172152BC43008163BB /* HomeWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorkerTests.swift; sourceTree = "<group>"; };
 		5BFF87182152BC43008163BB /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		5BFF871D2152BC68008163BB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		5BFF87212152BE66008163BB /* TestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModels.swift; sourceTree = "<group>"; };
 		5BFF87242152BF36008163BB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5BFF87262152BF9C008163BB /* SpaceXApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApi.swift; sourceTree = "<group>"; };
 		5BFF87282152BFE5008163BB /* SpaceXApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApiMock.swift; sourceTree = "<group>"; };
@@ -119,6 +126,9 @@
 		5BFF874A2152CE67008163BB /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		5BFF874D2152CFAD008163BB /* CommonDataEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataEnums.swift; sourceTree = "<group>"; };
 		5BFF87502152D041008163BB /* CommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelpers.swift; sourceTree = "<group>"; };
+		5BFF87532152D375008163BB /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		5BFF87562153128C008163BB /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5BFF87572153128C008163BB /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		66B267D35F1BD909340D3BFF /* Pods_SpaceOdysseyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdysseyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1BF2DEC16B9160467F89C9 /* Pods-SpaceOdyssey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdyssey.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdyssey/Pods-SpaceOdyssey.release.xcconfig"; sourceTree = "<group>"; };
 		8FFEC899882F8DEF7E71F4E9 /* Pods-SpaceOdysseyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyUITests/Pods-SpaceOdysseyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +201,6 @@
 		5B6FDDCE21505FD000460572 /* SpaceOdyssey */ = {
 			isa = PBXGroup;
 			children = (
-				5BFF87202152BE56008163BB /* Models */,
 				5BFF871F2152BE4C008163BB /* Common */,
 				5BFF87052152BBF7008163BB /* Scenes */,
 				5B6FDDCF21505FD000460572 /* AppDelegate.swift */,
@@ -223,6 +232,23 @@
 			path = SpaceOdysseyUITests;
 			sourceTree = "<group>";
 		};
+		5B8C246821551E0F00ABEBA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */,
+				5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B8C246D215520AD00ABEBA0 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				5B8C246E215520C700ABEBA0 /* Alert.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
 		5BFF87052152BBF7008163BB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +260,7 @@
 		5BFF87062152BC00008163BB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5BFF87552153125B008163BB /* UIElements */,
 				5BFF87072152BC1B008163BB /* HomePresenter.swift */,
 				5BFF87082152BC1B008163BB /* HomeWorker.swift */,
 				5BFF87092152BC1B008163BB /* HomeRouter.swift */,
@@ -267,20 +294,15 @@
 		5BFF871F2152BE4C008163BB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B8C246D215520AD00ABEBA0 /* UIElements */,
+				5B8C246821551E0F00ABEBA0 /* Extensions */,
+				5BFF87522152D35F008163BB /* Configs */,
 				5BFF87312152CA18008163BB /* DataManagers */,
 				5BFF872E2152C856008163BB /* Models */,
 				5BFF872D2152C84B008163BB /* Errors */,
 				5BFF87232152BF0C008163BB /* Network */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		5BFF87202152BE56008163BB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				5BFF87212152BE66008163BB /* TestModels.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		5BFF87232152BF0C008163BB /* Network */ = {
@@ -353,6 +375,23 @@
 				5BFF87502152D041008163BB /* CommonHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5BFF87522152D35F008163BB /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF87532152D375008163BB /* Style.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		5BFF87552153125B008163BB /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF87562153128C008163BB /* HomeCollectionViewCell.swift */,
+				5BFF87572153128C008163BB /* HomeCollectionViewCell.xib */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 		B92D31E39ECF392EE8D97686 /* Frameworks */ = {
@@ -477,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */,
+				5BFF87592153128C008163BB /* HomeCollectionViewCell.xib in Resources */,
 				5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */,
 				5B6FDDD521505FD000460572 /* Main.storyboard in Resources */,
 				5BFF872C2152C25B008163BB /* Launches.json in Resources */,
@@ -652,9 +692,11 @@
 			files = (
 				5BFF87302152C8AC008163BB /* LauncheErrors.swift in Sources */,
 				5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */,
+				5B8C246A21551E3B00ABEBA0 /* Strings+Extensions.swift in Sources */,
 				5BFF874E2152CFAD008163BB /* CommonDataEnums.swift in Sources */,
 				5BFF87332152CA75008163BB /* LaunchesDataManager.swift in Sources */,
 				5B6FDDD221505FD000460572 /* ViewController.swift in Sources */,
+				5BFF87582153128C008163BB /* HomeCollectionViewCell.swift in Sources */,
 				5BFF87412152CDF5008163BB /* FirstStage.swift in Sources */,
 				5BFF87512152D041008163BB /* CommonHelpers.swift in Sources */,
 				5BFF874B2152CE67008163BB /* Telemetry.swift in Sources */,
@@ -662,6 +704,7 @@
 				5BFF87272152BF9C008163BB /* SpaceXApi.swift in Sources */,
 				5BFF87352152CCCB008163BB /* Launch.swift in Sources */,
 				5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */,
+				5B8C246C21551E5700ABEBA0 /* UIImageView+Extensions.swift in Sources */,
 				5BFF87292152BFE5008163BB /* SpaceXApiMock.swift in Sources */,
 				5BFF87122152BC1B008163BB /* HomeInteractor.swift in Sources */,
 				5BFF873B2152CDB7008163BB /* Reuse.swift in Sources */,
@@ -672,12 +715,13 @@
 				5BFF87392152CDA5008163BB /* Links.swift in Sources */,
 				5BFF87102152BC1B008163BB /* HomeModels.swift in Sources */,
 				5BFF87472152CE31008163BB /* Payload.swift in Sources */,
+				5BFF87542152D375008163BB /* Style.swift in Sources */,
 				5BFF87112152BC1B008163BB /* HomeViewController.swift in Sources */,
 				5BFF87492152CE42008163BB /* OrbitParams.swift in Sources */,
 				5BFF87452152CE1F008163BB /* SecondStage.swift in Sources */,
 				5BFF873D2152CDC2008163BB /* Rocket.swift in Sources */,
+				5B8C246F215520C700ABEBA0 /* Alert.swift in Sources */,
 				5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */,
-				5BFF87222152BE66008163BB /* TestModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

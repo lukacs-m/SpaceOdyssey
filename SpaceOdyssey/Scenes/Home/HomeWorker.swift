@@ -12,7 +12,6 @@
 
 import UIKit
 
-class HomeWorker {
-  func doSomeWork() {
-  }
+class HomeWorker: LaunchesNetworkInjected {
+
 }

@@ -13,16 +13,35 @@
 import UIKit
 
 protocol HomePresentationLogic {
-  func presentSomething(response: Home.FetchHomeLaunches.Response)
+  func presentFetchHomeData(response: Home.FetchHomeLaunches.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
   weak var viewController: HomeDisplayLogic?
-  
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
+    
   // MARK: Do something
   
-  func presentSomething(response: Home.FetchHomeLaunches.Response) {
-    let viewModel = Home.FetchHomeLaunches.ViewModel()
+  func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
+    var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+    
+    if let launches = response.launches {
+        for launch in launches {
+            let date = (launch.launchDateUTC ?? "").fromUTCToLocalDateTime()
+            let name = launch.missionName
+            let imgUrl = launch.links?.missionPatch
+            
+            let displayedlaunch = Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: name, date: date, imgUrl: imgUrl)
+            displayedLaunches.append(displayedlaunch)
+        }
+    }
+    
+    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: response.error)
     viewController?.displayHomeLaunches(viewModel: viewModel)
   }
 }

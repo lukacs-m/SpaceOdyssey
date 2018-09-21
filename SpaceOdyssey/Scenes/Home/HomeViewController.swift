@@ -14,68 +14,162 @@ import UIKit
 import PromiseKit
 
 protocol HomeDisplayLogic: class {
-  func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel)
+    func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup() {
-    let viewController = self
-    let interactor = HomeInteractor()
-    let presenter = HomePresenter()
-    let router = HomeRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    fetchHomeLaunches()
-  }
-  
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        firstly {
-//            APIManager.callApi(SpaceXApi.launches(), dataReturnType: Launches.self)
-//            }.done { results in
-//                print("WOOOT Success \(results.count)")
-//            }.catch { error in
-//                print("\(error)")
-//            }
-//    }
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func fetchHomeLaunches() {
-    let request = Home.FetchHomeLaunches.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+    // MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: Variables
+    
+    private var collectionViewSizeChanged: Bool = false
+    private var flowLayout: UICollectionViewFlowLayout!
+    var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        refreshControl.addTarget(self, action: #selector(fetchHomeLaunches), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup() {
+        let viewController = self
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    private func setUpUI() {
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = UIColor.white
+        nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        title = "Home To Space X Launches"
+        setupCollectionView()
+        setupFlowLayout()
+    }
+    
+    private func setupCollectionView() {
+        flowLayout = UICollectionViewFlowLayout()
+        collectionView.collectionViewLayout = flowLayout
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
+    }
+    
+    private func setupFlowLayout() {
+        flowLayout.minimumInteritemSpacing = Style.Size.margin
+        flowLayout.minimumLineSpacing = Style.Size.margin
+        flowLayout.sectionInset = UIEdgeInsets(top: Style.Size.margin, left: Style.Size.margin, bottom: 0.0, right: Style.Size.margin)
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpUI()
+        fetchHomeLaunches()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        collectionViewSizeChanged = true
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if collectionViewSizeChanged {
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if collectionViewSizeChanged {
+            collectionViewSizeChanged = false
+            collectionView.performBatchUpdates({}, completion: nil)
+        }
+    }
+    
+    // MARK: Fetch the data to display in the home collection view
+    
+    @objc func fetchHomeLaunches() {
+        let request = Home.FetchHomeLaunches.Request()
+        interactor?.fetchHomeLaunches(request: request)
+    }
+    
+    func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+        setRefreshControl()
+        guard viewModel.error == nil else {
+            Alert.showUnableToRetrieveDataAlert(on: self)
+            return
+        }
+        displayedLaunches = viewModel.displayedLaunches
+        collectionView.reloadData()
+    }
+    
+    private func setRefreshControl() {
+        refresher.endRefreshing()
+        guard collectionView.refreshControl == nil else { return }
+        collectionView.refreshControl = refresher
+    }
+}
 
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return displayedLaunches.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let launch = self.displayedLaunches[indexPath.row]
+        cell.update(item: launch)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size: CGFloat
+        
+        if traitCollection.userInterfaceIdiom == .phone {
+            size = floor((collectionView.frame.size.width - 3.0 * Style.Size.margin) / 2.0)
+        } else {
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                size = floor((collectionView.frame.size.width - 6.0 * Style.Size.margin) / 5.0)
+            } else {
+                size = floor((collectionView.frame.size.width - 4.0 * Style.Size.margin) / 3.0)
+            }
+        }
+        
+        return CGSize(width: size, height: size)
     }
 }

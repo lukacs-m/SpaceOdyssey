@@ -18,9 +18,20 @@ enum Home {
   enum FetchHomeLaunches {
     struct Request {
     }
+    
     struct Response {
+        var launches: [Launch]?
+        var error: Error?
     }
+    
     struct ViewModel {
+        struct DisplayedLaunch {
+            var name: String?
+            var date: String
+            var imgUrl: String?
+        }
+        var displayedLaunches: [DisplayedLaunch]
+        var error: Error?
     }
   }
 }
