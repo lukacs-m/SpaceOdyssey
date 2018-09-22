@@ -11,73 +11,152 @@
 //
 
 @testable import SpaceOdyssey
-import XCTest
+import Quick
+import Nimble
 
-class HomeViewControllerTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HomeViewController!
-  var window: UIWindow!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    window = UIWindow()
-    setupHomeViewController()
-  }
-  
-  override func tearDown() {
-    window = nil
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHomeViewController() {
-    let bundle = Bundle.main
-    let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-    sut = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-  }
-  
-  func loadView() {
-    window.addSubview(sut.view)
-    RunLoop.current.run(until: Date())
-  }
-  
-  // MARK: Test doubles
-  
-  class HomeBusinessLogicSpy: HomeBusinessLogic {
-    var doSomethingCalled = false
+class HomeViewControllerTests: QuickSpec {
     
-    func doSomething(request: Home.Something.Request) {
-      doSomethingCalled = true
+    override func spec() {
+        
+        describe("HomeViewController tests") {
+            
+            // MARK: Subject under test
+            
+            var sut: HomeViewController!
+            var window: UIWindow!
+            let layout = UICollectionViewFlowLayout()
+            
+            // MARK: Test setup
+            
+            func setupHomeViewController() {
+                sut = HomeViewController()
+            }
+            
+            beforeSuite {
+                LaunchesNetworkInjector.networkManager = LaunchesNetworkManagerMock()
+            }
+            
+            beforeEach {
+                super.setUp()
+                window = UIWindow(frame: UIScreen.main.bounds)
+                setupHomeViewController()
+            }
+            
+            func loadview() {
+                window.addSubview(sut.view)
+                sut.beginAppearanceTransition(true, animated: false)
+                sut.endAppearanceTransition()
+            }
+            
+            afterEach {
+                window = nil
+            }
+            
+            // MARK: Test doubles
+            
+            class HomeBusinessLogicSpy: HomeBusinessLogic {
+                var fetchHomeLaunchesCalled = false
+                
+                
+                func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
+                    fetchHomeLaunchesCalled = true
+                }
+            }
+            
+            class HomeRouterSpy: HomeRouter {
+                // MARK: Method call expectations
+            }
+            
+            class CollectionViewSpy: UICollectionView {
+                // MARK: Method call expectations
+
+                var reloadDataCalled = false
+
+                // MARK: Spied methods
+
+                override func reloadData() {
+                    reloadDataCalled = true
+                }
+            }
+            
+            //MARK: - Test
+            
+            context("When view is loaded") {
+                it("Should be a HomeViewController") {
+                    expect(sut).to(beAKindOf(HomeViewController.self))
+                }
+                
+                it("Should fetch space x launches informations on start") {
+                    let homeBusinessLogicSpy = HomeBusinessLogicSpy()
+                    sut.interactor = homeBusinessLogicSpy
+                    
+                    loadview()
+                    
+                    expect(homeBusinessLogicSpy.fetchHomeLaunchesCalled).to(beTrue())
+                }
+            }
+            
+            context("When collection view is loaded") {
+                it("Should display view controller") {
+                    loadview()
+                    // Given
+                    let collectionViewSpy = CollectionViewSpy(frame: sut.view.frame, collectionViewLayout: layout)
+                    sut.collectionView = collectionViewSpy
+
+                    let displayedLaunches = [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test", date: "Date", imgUrl: nil)]
+                    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: nil)
+
+                    sut.displayHomeLaunches(viewModel: viewModel)
+
+                    expect(collectionViewSpy.reloadDataCalled).to(beTrue())
+                }
+                
+                it("Should have one section in tableView") {
+                    loadview()
+
+                    // Given
+                    let collectionView = sut.collectionView
+
+                    // When
+                    let numberOfSections = sut.numSections(in: collectionView!)
+
+                    expect(numberOfSections) == 1
+                }
+                
+                it("Should have two rows in section of collectionView") {
+                    // Given
+                    loadview()
+                    
+                    let displayedLaunches = [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test", date: "Date", imgUrl: nil),Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test2", date: "Date2", imgUrl: nil) ]
+
+                    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: nil)
+
+                    sut.displayHomeLaunches(viewModel: viewModel)
+
+                    // When
+                    let numberOfRows = sut.collectionView.numberOfItems(inSection: 0)
+
+                    expect(numberOfRows) == displayedLaunches.count
+                }
+                
+                it("Should be HomeCollectionViewCell") {
+                    loadview()
+
+                    // Given
+                    let collectionView = sut.collectionView
+
+                    let displayedLaunches = [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test", date: "Date", imgUrl: nil),Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test2", date: "Date2", imgUrl: nil) ]
+
+                    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: nil)
+
+                    sut.displayHomeLaunches(viewModel: viewModel)
+
+                    // When
+                    let cell = sut.collectionView(collectionView!, cellForItemAt: IndexPath(row: 0, section: 0))
+
+                    expect(cell).to(beAKindOf(HomeCollectionViewCell.self))
+                }
+            }
+        }
     }
-  }
-  
-  // MARK: Tests
-  
-  func testShouldDoSomethingWhenViewIsLoaded() {
-    // Given
-    let spy = HomeBusinessLogicSpy()
-    sut.interactor = spy
-    
-    // When
-    loadView()
-    
-    // Then
-    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
-  }
-  
-  func testDisplaySomething() {
-    // Given
-    let viewModel = Home.Something.ViewModel()
-    
-    // When
-    loadView()
-    sut.displaySomething(viewModel: viewModel)
-    
-    // Then
-    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
-  }
 }

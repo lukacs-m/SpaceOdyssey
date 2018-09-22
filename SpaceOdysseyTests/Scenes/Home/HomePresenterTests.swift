@@ -11,52 +11,56 @@
 //
 
 @testable import SpaceOdyssey
-import XCTest
+import Quick
+import Nimble
 
-class HomePresenterTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HomePresenter!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupHomePresenter()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHomePresenter() {
-    sut = HomePresenter()
-  }
-  
-  // MARK: Test doubles
-  
-  class HomeDisplayLogicSpy: HomeDisplayLogic {
-    var displaySomethingCalled = false
+class HomePresenterTests: QuickSpec {
     
-    func displaySomething(viewModel: Home.Something.ViewModel) {
-      displaySomethingCalled = true
+    override func spec() {
+        describe("HomePresenter tests") {
+            
+            // MARK: Subject under test
+            
+            var sut: HomePresenter!
+            var launch:Launch!
+
+            beforeSuite {
+                LaunchesNetworkInjector.networkManager = LaunchesNetworkManagerMock()
+                setupHomePresenter()
+                launch = try! Launch.validLaunch.decode()
+            }
+            
+            // MARK: Test setup
+            
+            func setupHomePresenter() {
+                sut = HomePresenter()
+            }
+            
+            // MARK: Test doubles
+            
+            class HomeDisplayLogicSpy: HomeDisplayLogic {
+                var displayHomeLaunchesCalled = false
+                var viewModel: Home.FetchHomeLaunches.ViewModel!
+                
+                func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+                    self.viewModel = viewModel
+                    displayHomeLaunchesCalled = true
+                }
+            }
+            
+            // MARK: Tests
+            
+            context("Display View controller") {
+                it("Should ask to display space x launches") {
+
+                    let spy = HomeDisplayLogicSpy()
+                    sut.viewController = spy
+                    let response = Home.FetchHomeLaunches.Response(launches: [launch], error: nil)
+
+                    sut.presentFetchHomeData(response: response)
+                    expect(spy.displayHomeLaunchesCalled).to(beTrue())
+                }
+            }
+        }
     }
-  }
-  
-  // MARK: Tests
-  
-  func testPresentSomething() {
-    // Given
-    let spy = HomeDisplayLogicSpy()
-    sut.viewController = spy
-    let response = Home.Something.Response()
-    
-    // When
-    sut.presentSomething(response: response)
-    
-    // Then
-    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
-  }
 }

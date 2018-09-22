@@ -22,25 +22,7 @@ struct APIManager: GeneralAPI {
         if EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" {
             debugMode = true
         }
-//
-//        #if WOOT
-//        let debugMode = true
-//        #else
-//        let debugMode = false
-//        #endif
-//
-//        let provider: MoyaProvider<T>!
-//
-//        if test {
-//         provider = MoyaProvider<T>(stubClosure: MoyaProvider.immediatelyStub)
-//        } else {
-//            if debugMode {
-//                provider = MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)])
-//            } else {
-//                provider = MoyaProvider<T>()
-//            }
-//        }
-//
+
         let provider = test ? (MoyaProvider<T>(stubClosure: MoyaProvider.immediatelyStub)) :
             (debugMode ? MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)]) : MoyaProvider<T>())
         

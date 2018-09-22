@@ -10,40 +10,40 @@
 //  see http://clean-swift.com
 //
 
-@testable import SpaceOdyssey
-import XCTest
-
-class HomeWorkerTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HomeWorker!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupHomeWorker()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHomeWorker() {
-    sut = HomeWorker()
-  }
-  
-  // MARK: Test doubles
-  
-  // MARK: Tests
-  
-  func testSomething() {
-    // Given
-    
-    // When
-    
-    // Then
-  }
-}
+//@testable import SpaceOdyssey
+//import XCTest
+//
+//class HomeWorkerTests: XCTestCase {
+//  // MARK: Subject under test
+//  
+//  var sut: HomeWorker!
+//  
+//  // MARK: Test lifecycle
+//  
+//  override func setUp() {
+//    super.setUp()
+//    setupHomeWorker()
+//  }
+//  
+//  override func tearDown() {
+//    super.tearDown()
+//  }
+//  
+//  // MARK: Test setup
+//  
+//  func setupHomeWorker() {
+//    sut = HomeWorker()
+//  }
+//  
+//  // MARK: Test doubles
+//  
+//  // MARK: Tests
+//  
+//  func testSomething() {
+//    // Given
+//    
+//    // When
+//    
+//    // Then
+//  }
+//}

@@ -27,7 +27,7 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var worker = HomeWorker()
     var launches: [Launch]?
     
-    // MARK: Do something
+    // MARK: Fetches the launches from space x api
     
     func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
         

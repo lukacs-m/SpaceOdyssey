@@ -11,52 +11,55 @@
 //
 
 @testable import SpaceOdyssey
-import XCTest
+import Quick
+import Nimble
+import PromiseKit
 
-class HomeInteractorTests: XCTestCase {
-  // MARK: Subject under test
-  
-  var sut: HomeInteractor!
-  
-  // MARK: Test lifecycle
-  
-  override func setUp() {
-    super.setUp()
-    setupHomeInteractor()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
-  }
-  
-  // MARK: Test setup
-  
-  func setupHomeInteractor() {
-    sut = HomeInteractor()
-  }
-  
-  // MARK: Test doubles
-  
-  class HomePresentationLogicSpy: HomePresentationLogic {
-    var presentSomethingCalled = false
+class HomeInteractorTests: QuickSpec {
     
-    func presentSomething(response: Home.Something.Response) {
-      presentSomethingCalled = true
+    override func spec() {
+        describe("HomeInteractor tests") {
+            
+            // MARK: Subject under test
+            
+            var sut: HomeInteractor!
+            
+            beforeSuite {
+                LaunchesNetworkInjector.networkManager = LaunchesNetworkManagerMock()
+                setupHomeInteractor()
+            }
+            
+            // MARK: Test setup
+            
+            func setupHomeInteractor() {
+                sut = HomeInteractor()
+            }
+            
+            // MARK: Test doubles
+            
+            class HomePresentationLogicSpy: HomePresentationLogic {
+                var presentFetchHomeDataCalled = false
+                
+                func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
+                    presentFetchHomeDataCalled = true
+                }
+            }
+            
+            // MARK: Tests
+            
+            context("Set Up Home view") {
+                
+                it("Sould call the presentFetchChartsViews function") {
+                    let spy = HomePresentationLogicSpy()
+                    let spyWorker = sut.worker.launchesDataManager as! LaunchesNetworkManagerMock
+                    sut.presenter = spy
+                    let request = Home.FetchHomeLaunches.Request()
+                    
+                    sut.fetchHomeLaunches(request: request)
+                    expect(spy.presentFetchHomeDataCalled).toEventually(beTrue())
+                    expect(spyWorker.getLaunchesCalled).to(beTrue())
+                }
+            }
+        }
     }
-  }
-  
-  // MARK: Tests
-  
-  func testDoSomething() {
-    // Given
-    let spy = HomePresentationLogicSpy()
-    sut.presenter = spy
-    let request = Home.Something.Request()
-    
-    // When
-    sut.doSomething(request: request)
-    
-    // Then
-    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
-  }
 }
