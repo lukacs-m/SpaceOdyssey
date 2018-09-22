@@ -7,6 +7,7 @@ def common_pods
     pod 'Moya'
     pod 'PromiseKit'
     pod 'Kingfisher'
+    pod 'SkeletonView'
 end
 
 # Pods for SpaceOdyssey Testing

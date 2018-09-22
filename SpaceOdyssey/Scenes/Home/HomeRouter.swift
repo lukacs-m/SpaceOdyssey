@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol HomeRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func showLaunchPage(index: Int)
 }
 
 protocol HomeDataPassing {
@@ -26,6 +26,11 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
   
   // MARK: Routing
   
+    func showLaunchPage(index: Int) {
+        let launch = dataStore?.launches?[index]
+        print(launch)
+    }
+    
   //func routeToSomewhere(segue: UIStoryboardSegue?)
   //{
   //  if let segue = segue {
@@ -50,8 +55,42 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: HomeDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+//  func passDataToSomewhere(source: HomeDataStore, destination: inout SomewhereDataStore)
+//  {
+//    destination.name = source.name
+//  }
 }
+
+
+//
+//func routeToCreateUser() {
+//    guard let destinationVC = viewController?.navigationController?.viewControllers.first(where: { $0 is CreateUserViewController }) as? CreateUserViewController
+//        else {
+//            // Show order not in stack so push fresh
+//            let destinationVC = CreateUserViewController(nibName: "CreateUserViewController", bundle: nil)
+//            var destinationDS = destinationVC.router!.dataStore!
+//            self.passDataToCreateUser(source: self.dataStore!, destination: &destinationDS)
+//            viewController!.navigationController?.pushViewController(destinationVC, animated: true)
+//            return
+//    }
+//    var destinationDS = destinationVC.router!.dataStore!
+//    passDataToCreateUser(source: dataStore!, destination: &destinationDS)
+//    navigateToCreateUser(source: viewController!, destination: destinationVC)
+//}
+//}
+//
+//// MARK: Navigation
+//
+//extension AccountRouter {
+//    func navigateToCreateUser(source: AccountViewController, destination: CreateUserViewController) {
+//        source.navigationController?.popToViewController(destination, animated: true)
+//    }
+//}
+//
+//// MARK: Passing data
+//
+//extension AccountRouter {
+//    func passDataToCreateUser(source: AccountDataStore, destination: inout CreateUserDataStore) {
+//        destination.userToEdit = source.user
+//    }
+//}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeCollectionViewCell: UICollectionViewCell {
 
@@ -16,9 +17,19 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        isSkeletonable = true
     }
-    
+//    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//        isSkeletonable = true
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
     func update(item: Home.FetchHomeLaunches.ViewModel.DisplayedLaunch) {
         lblTitle.text = item.name ?? ""
         lblDate.text = item.date

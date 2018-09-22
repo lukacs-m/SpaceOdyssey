@@ -12,12 +12,13 @@
 
 import UIKit
 import PromiseKit
+import SkeletonView
 
 protocol HomeDisplayLogic: class {
     func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel)
 }
 
-class HomeViewController: UIViewController, HomeDisplayLogic {
+final class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     private func setUpUI() {
+        view.isSkeletonable = true
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
         nav?.tintColor = UIColor.white
@@ -78,6 +80,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         collectionView.collectionViewLayout = flowLayout
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isSkeletonable = true
+        collectionView.backgroundColor = .clear
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
     }
     
@@ -93,6 +97,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         super.viewDidLoad()
         setUpUI()
         fetchHomeLaunches()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if displayedLaunches.isEmpty {
+            collectionView.prepareSkeleton(completion: { _ in
+                self.view.showAnimatedGradientSkeleton()
+            })
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -126,6 +139,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+        view.hideSkeleton()
         setRefreshControl()
         guard viewModel.error == nil else {
             Alert.showUnableToRetrieveDataAlert(on: self)
@@ -136,7 +150,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     private func setRefreshControl() {
-        refresher.endRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refresher.endRefreshing()
+        }
         guard collectionView.refreshControl == nil else { return }
         collectionView.refreshControl = refresher
     }
@@ -171,5 +187,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router?.showLaunchPage(index: indexPath.row)
+    }
+}
+
+// MARK: - SkeletonCollectionViewDataSource
+
+extension HomeViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "HomeCollectionViewCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 15
     }
 }

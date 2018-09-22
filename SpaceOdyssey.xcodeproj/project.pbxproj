@@ -13,11 +13,11 @@
 		5B6FDDD521505FD000460572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD321505FD000460572 /* Main.storyboard */; };
 		5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD621505FD100460572 /* Assets.xcassets */; };
 		5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */; };
-		5B6FDDE521505FD100460572 /* SpaceOdysseyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */; };
 		5B6FDDF021505FD100460572 /* SpaceOdysseyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */; };
 		5B8C246A21551E3B00ABEBA0 /* Strings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */; };
 		5B8C246C21551E5700ABEBA0 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */; };
 		5B8C246F215520C700ABEBA0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C246E215520C700ABEBA0 /* Alert.swift */; };
+		5B8C247121564E0800ABEBA0 /* EnvironmentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C247021564E0800ABEBA0 /* EnvironmentVariables.swift */; };
 		5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87072152BC1B008163BB /* HomePresenter.swift */; };
 		5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87082152BC1B008163BB /* HomeWorker.swift */; };
 		5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87092152BC1B008163BB /* HomeRouter.swift */; };
@@ -87,7 +87,6 @@
 		5B6FDDD921505FD100460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6FDDDB21505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6FDDE021505FD100460572 /* SpaceOdysseyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceOdysseyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceOdysseyTests.swift; sourceTree = "<group>"; };
 		5B6FDDE621505FD100460572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6FDDEB21505FD100460572 /* SpaceOdysseyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceOdysseyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDEF21505FD100460572 /* SpaceOdysseyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceOdysseyUITests.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extensions.swift"; sourceTree = "<group>"; };
 		5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		5B8C246E215520C700ABEBA0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		5B8C247021564E0800ABEBA0 /* EnvironmentVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentVariables.swift; sourceTree = "<group>"; };
 		5BFF87072152BC1B008163BB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5BFF87082152BC1B008163BB /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		5BFF87092152BC1B008163BB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -217,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				5BFF87132152BC26008163BB /* Scenes */,
-				5B6FDDE421505FD100460572 /* SpaceOdysseyTests.swift */,
 				5B6FDDE621505FD100460572 /* Info.plist */,
 			);
 			path = SpaceOdysseyTests;
@@ -381,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				5BFF87532152D375008163BB /* Style.swift */,
+				5B8C247021564E0800ABEBA0 /* EnvironmentVariables.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -591,6 +591,7 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -599,6 +600,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -695,6 +697,7 @@
 				5B8C246A21551E3B00ABEBA0 /* Strings+Extensions.swift in Sources */,
 				5BFF874E2152CFAD008163BB /* CommonDataEnums.swift in Sources */,
 				5BFF87332152CA75008163BB /* LaunchesDataManager.swift in Sources */,
+				5B8C247121564E0800ABEBA0 /* EnvironmentVariables.swift in Sources */,
 				5B6FDDD221505FD000460572 /* ViewController.swift in Sources */,
 				5BFF87582153128C008163BB /* HomeCollectionViewCell.swift in Sources */,
 				5BFF87412152CDF5008163BB /* FirstStage.swift in Sources */,
@@ -730,7 +733,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFF871A2152BC43008163BB /* HomeInteractorTests.swift in Sources */,
-				5B6FDDE521505FD100460572 /* SpaceOdysseyTests.swift in Sources */,
 				5BFF871B2152BC43008163BB /* HomeWorkerTests.swift in Sources */,
 				5BFF871C2152BC43008163BB /* HomePresenterTests.swift in Sources */,
 				5BFF87192152BC43008163BB /* HomeViewControllerTests.swift in Sources */,
@@ -906,8 +908,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdyssey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

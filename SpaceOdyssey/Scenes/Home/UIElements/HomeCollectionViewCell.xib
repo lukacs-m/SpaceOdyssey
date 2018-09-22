@@ -19,11 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="233" height="233"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceX" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-5T-GEd">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-5T-GEd">
                         <rect key="frame" x="0.0" y="0.0" width="233" height="233"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ijM-5T-GEd" secondAttribute="height" multiplier="1:1" id="Uj2-ig-reg"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9R-8h-tua">
                         <rect key="frame" x="0.0" y="218" width="233" height="15"/>
@@ -52,6 +55,9 @@
                             <constraint firstItem="mZR-Pa-ZKq" firstAttribute="top" secondItem="wR3-cz-Fo7" secondAttribute="bottom" constant="5" id="qXc-2N-gfz"/>
                             <constraint firstAttribute="trailing" secondItem="mZR-Pa-ZKq" secondAttribute="trailing" constant="10" id="zXE-z9-shS"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -67,6 +73,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="237" height="233"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imgMain" destination="ijM-5T-GEd" id="hFD-eB-vVi"/>
                 <outlet property="lblDate" destination="mZR-Pa-ZKq" id="L30-Xl-r6x"/>
@@ -75,7 +84,4 @@
             <point key="canvasLocation" x="287.19999999999999" y="222.63868065967017"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="spaceX" width="630" height="630"/>
-    </resources>
 </document>

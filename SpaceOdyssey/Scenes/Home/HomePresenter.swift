@@ -18,14 +18,8 @@ protocol HomePresentationLogic {
 
 class HomePresenter: HomePresentationLogic {
   weak var viewController: HomeDisplayLogic?
-    let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        return dateFormatter
-    }()
     
-  // MARK: Do something
+  // MARK: Format the data to be display on home page
   
   func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
     var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []

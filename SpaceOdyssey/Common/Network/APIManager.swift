@@ -16,13 +16,33 @@ protocol GeneralAPI {
 struct APIManager: GeneralAPI {
     
     static func callApi<T: TargetType, U: Decodable>(_ target: T, dataReturnType: U.Type, test: Bool = false) -> Promise<U> {
-        var debug = false
-        #if DEBUG
-        debug = true
-        #endif
         
+        var debugMode  = false
+        
+        if EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" {
+            debugMode = true
+        }
+//
+//        #if WOOT
+//        let debugMode = true
+//        #else
+//        let debugMode = false
+//        #endif
+//
+//        let provider: MoyaProvider<T>!
+//
+//        if test {
+//         provider = MoyaProvider<T>(stubClosure: MoyaProvider.immediatelyStub)
+//        } else {
+//            if debugMode {
+//                provider = MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)])
+//            } else {
+//                provider = MoyaProvider<T>()
+//            }
+//        }
+//
         let provider = test ? (MoyaProvider<T>(stubClosure: MoyaProvider.immediatelyStub)) :
-            (debug ? MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)]) : MoyaProvider<T>())
+            (debugMode ? MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)]) : MoyaProvider<T>())
         
         return Promise { seal in
             provider.request(target) { result in
