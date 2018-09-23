@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		282EA38D708FE6E256EB7610 /* Pods_SpaceOdyssey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */; };
 		5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDCF21505FD000460572 /* AppDelegate.swift */; };
-		5B6FDDD221505FD000460572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD121505FD000460572 /* ViewController.swift */; };
 		5B6FDDD521505FD000460572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD321505FD000460572 /* Main.storyboard */; };
 		5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD621505FD100460572 /* Assets.xcassets */; };
 		5B6FDDDA21505FD100460572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,19 @@
 		5B8C24772156775A00ABEBA0 /* JSONMockingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24762156775A00ABEBA0 /* JSONMockingTool.swift */; };
 		5B8C247B21567C6600ABEBA0 /* LaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C247A21567C6600ABEBA0 /* LaunchTests.swift */; };
 		5B8C247E2156826700ABEBA0 /* LaunchMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C247D2156826700ABEBA0 /* LaunchMocks.swift */; };
+		5B8C24812157D7C400ABEBA0 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24802157D7C400ABEBA0 /* Optional+Extensions.swift */; };
+		5B8C24842157D98B00ABEBA0 /* AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24832157D98B00ABEBA0 /* AlertTests.swift */; };
+		5B8C24862157DC7000ABEBA0 /* LaunchSiteMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24852157DC7000ABEBA0 /* LaunchSiteMock.swift */; };
+		5B8C24882157DDAE00ABEBA0 /* LinksMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24872157DDAE00ABEBA0 /* LinksMock.swift */; };
+		5B8C248A2157DEDD00ABEBA0 /* ReuseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24892157DEDD00ABEBA0 /* ReuseMock.swift */; };
+		5B8C248C2157DF5200ABEBA0 /* TelemetryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C248B2157DF5200ABEBA0 /* TelemetryMock.swift */; };
+		5B8C248E2157DF9E00ABEBA0 /* RocketMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C248D2157DF9E00ABEBA0 /* RocketMock.swift */; };
+		5B8C24902157E02900ABEBA0 /* FairingsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C248F2157E02900ABEBA0 /* FairingsMock.swift */; };
+		5B8C24922157E04100ABEBA0 /* CoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24912157E04000ABEBA0 /* CoreMock.swift */; };
+		5B8C24942157E05500ABEBA0 /* PayloadMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24932157E05500ABEBA0 /* PayloadMock.swift */; };
+		5B8C24962157E0C500ABEBA0 /* FirstStageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24952157E0C500ABEBA0 /* FirstStageMock.swift */; };
+		5B8C24982157E0E200ABEBA0 /* SecondStageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24972157E0E200ABEBA0 /* SecondStageMock.swift */; };
+		5B8C249A2157E10100ABEBA0 /* OrbitParamsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24992157E10100ABEBA0 /* OrbitParamsMock.swift */; };
 		5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87072152BC1B008163BB /* HomePresenter.swift */; };
 		5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87082152BC1B008163BB /* HomeWorker.swift */; };
 		5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87092152BC1B008163BB /* HomeRouter.swift */; };
@@ -37,7 +49,7 @@
 		5BFF87272152BF9C008163BB /* SpaceXApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87262152BF9C008163BB /* SpaceXApi.swift */; };
 		5BFF87292152BFE5008163BB /* SpaceXApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87282152BFE5008163BB /* SpaceXApiMock.swift */; };
 		5BFF872C2152C25B008163BB /* Launches.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF872B2152C25B008163BB /* Launches.json */; };
-		5BFF87302152C8AC008163BB /* LauncheErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF872F2152C8AC008163BB /* LauncheErrors.swift */; };
+		5BFF87302152C8AC008163BB /* LaunchErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF872F2152C8AC008163BB /* LaunchErrors.swift */; };
 		5BFF87332152CA75008163BB /* LaunchesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87322152CA75008163BB /* LaunchesDataManager.swift */; };
 		5BFF87352152CCCB008163BB /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87342152CCCB008163BB /* Launch.swift */; };
 		5BFF87372152CD89008163BB /* LaunchSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87362152CD89008163BB /* LaunchSite.swift */; };
@@ -85,7 +97,6 @@
 		5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdyssey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceOdyssey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDCF21505FD000460572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B6FDDD121505FD000460572 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B6FDDD421505FD000460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B6FDDD621505FD100460572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B6FDDD921505FD100460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,6 +114,19 @@
 		5B8C24762156775A00ABEBA0 /* JSONMockingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMockingTool.swift; sourceTree = "<group>"; };
 		5B8C247A21567C6600ABEBA0 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
 		5B8C247D2156826700ABEBA0 /* LaunchMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchMocks.swift; sourceTree = "<group>"; };
+		5B8C24802157D7C400ABEBA0 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		5B8C24832157D98B00ABEBA0 /* AlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTests.swift; sourceTree = "<group>"; };
+		5B8C24852157DC7000ABEBA0 /* LaunchSiteMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSiteMock.swift; sourceTree = "<group>"; };
+		5B8C24872157DDAE00ABEBA0 /* LinksMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksMock.swift; sourceTree = "<group>"; };
+		5B8C24892157DEDD00ABEBA0 /* ReuseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseMock.swift; sourceTree = "<group>"; };
+		5B8C248B2157DF5200ABEBA0 /* TelemetryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryMock.swift; sourceTree = "<group>"; };
+		5B8C248D2157DF9E00ABEBA0 /* RocketMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketMock.swift; sourceTree = "<group>"; };
+		5B8C248F2157E02900ABEBA0 /* FairingsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairingsMock.swift; sourceTree = "<group>"; };
+		5B8C24912157E04000ABEBA0 /* CoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMock.swift; sourceTree = "<group>"; };
+		5B8C24932157E05500ABEBA0 /* PayloadMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadMock.swift; sourceTree = "<group>"; };
+		5B8C24952157E0C500ABEBA0 /* FirstStageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageMock.swift; sourceTree = "<group>"; };
+		5B8C24972157E0E200ABEBA0 /* SecondStageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStageMock.swift; sourceTree = "<group>"; };
+		5B8C24992157E10100ABEBA0 /* OrbitParamsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitParamsMock.swift; sourceTree = "<group>"; };
 		5BFF87072152BC1B008163BB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5BFF87082152BC1B008163BB /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		5BFF87092152BC1B008163BB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -118,7 +142,7 @@
 		5BFF87262152BF9C008163BB /* SpaceXApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApi.swift; sourceTree = "<group>"; };
 		5BFF87282152BFE5008163BB /* SpaceXApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApiMock.swift; sourceTree = "<group>"; };
 		5BFF872B2152C25B008163BB /* Launches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Launches.json; sourceTree = "<group>"; };
-		5BFF872F2152C8AC008163BB /* LauncheErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncheErrors.swift; sourceTree = "<group>"; };
+		5BFF872F2152C8AC008163BB /* LaunchErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchErrors.swift; sourceTree = "<group>"; };
 		5BFF87322152CA75008163BB /* LaunchesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesDataManager.swift; sourceTree = "<group>"; };
 		5BFF87342152CCCB008163BB /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		5BFF87362152CD89008163BB /* LaunchSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSite.swift; sourceTree = "<group>"; };
@@ -212,7 +236,6 @@
 				5BFF871F2152BE4C008163BB /* Common */,
 				5BFF87052152BBF7008163BB /* Scenes */,
 				5B6FDDCF21505FD000460572 /* AppDelegate.swift */,
-				5B6FDDD121505FD000460572 /* ViewController.swift */,
 				5B6FDDD321505FD000460572 /* Main.storyboard */,
 				5B6FDDD621505FD100460572 /* Assets.xcassets */,
 				5B6FDDD821505FD100460572 /* LaunchScreen.storyboard */,
@@ -247,6 +270,7 @@
 			children = (
 				5B8C246921551E3B00ABEBA0 /* Strings+Extensions.swift */,
 				5B8C246B21551E5700ABEBA0 /* UIImageView+Extensions.swift */,
+				5B8C24802157D7C400ABEBA0 /* Optional+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,6 +303,7 @@
 		5B8C247821567C3100ABEBA0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B8C24822157D97300ABEBA0 /* UIElements */,
 				5B8C247921567C3F00ABEBA0 /* Models */,
 			);
 			path = Common;
@@ -296,6 +321,17 @@
 			isa = PBXGroup;
 			children = (
 				5B8C247D2156826700ABEBA0 /* LaunchMocks.swift */,
+				5B8C24852157DC7000ABEBA0 /* LaunchSiteMock.swift */,
+				5B8C24872157DDAE00ABEBA0 /* LinksMock.swift */,
+				5B8C24892157DEDD00ABEBA0 /* ReuseMock.swift */,
+				5B8C248D2157DF9E00ABEBA0 /* RocketMock.swift */,
+				5B8C248F2157E02900ABEBA0 /* FairingsMock.swift */,
+				5B8C24952157E0C500ABEBA0 /* FirstStageMock.swift */,
+				5B8C24912157E04000ABEBA0 /* CoreMock.swift */,
+				5B8C24972157E0E200ABEBA0 /* SecondStageMock.swift */,
+				5B8C24932157E05500ABEBA0 /* PayloadMock.swift */,
+				5B8C24992157E10100ABEBA0 /* OrbitParamsMock.swift */,
+				5B8C248B2157DF5200ABEBA0 /* TelemetryMock.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +342,14 @@
 				5B8C247321565C5D00ABEBA0 /* LaunchesDataManagerMock.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		5B8C24822157D97300ABEBA0 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				5B8C24832157D98B00ABEBA0 /* AlertTests.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 		5BFF87052152BBF7008163BB /* Scenes */ = {
@@ -386,7 +430,7 @@
 		5BFF872D2152C84B008163BB /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				5BFF872F2152C8AC008163BB /* LauncheErrors.swift */,
+				5BFF872F2152C8AC008163BB /* LaunchErrors.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -752,13 +796,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFF87302152C8AC008163BB /* LauncheErrors.swift in Sources */,
+				5BFF87302152C8AC008163BB /* LaunchErrors.swift in Sources */,
 				5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */,
 				5B8C246A21551E3B00ABEBA0 /* Strings+Extensions.swift in Sources */,
 				5BFF874E2152CFAD008163BB /* CommonDataEnums.swift in Sources */,
 				5BFF87332152CA75008163BB /* LaunchesDataManager.swift in Sources */,
 				5B8C247121564E0800ABEBA0 /* EnvironmentVariables.swift in Sources */,
-				5B6FDDD221505FD000460572 /* ViewController.swift in Sources */,
 				5BFF87582153128C008163BB /* HomeCollectionViewCell.swift in Sources */,
 				5BFF87412152CDF5008163BB /* FirstStage.swift in Sources */,
 				5BFF87512152D041008163BB /* CommonHelpers.swift in Sources */,
@@ -776,6 +819,7 @@
 				5BFF87432152CE09008163BB /* Core.swift in Sources */,
 				5BFF87372152CD89008163BB /* LaunchSite.swift in Sources */,
 				5BFF87392152CDA5008163BB /* Links.swift in Sources */,
+				5B8C24812157D7C400ABEBA0 /* Optional+Extensions.swift in Sources */,
 				5BFF87102152BC1B008163BB /* HomeModels.swift in Sources */,
 				5BFF87472152CE31008163BB /* Payload.swift in Sources */,
 				5BFF87542152D375008163BB /* Style.swift in Sources */,
@@ -792,13 +836,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8C248A2157DEDD00ABEBA0 /* ReuseMock.swift in Sources */,
 				5BFF871A2152BC43008163BB /* HomeInteractorTests.swift in Sources */,
 				5BFF871B2152BC43008163BB /* HomeWorkerTests.swift in Sources */,
+				5B8C248C2157DF5200ABEBA0 /* TelemetryMock.swift in Sources */,
 				5B8C24772156775A00ABEBA0 /* JSONMockingTool.swift in Sources */,
 				5B8C247B21567C6600ABEBA0 /* LaunchTests.swift in Sources */,
 				5B8C247E2156826700ABEBA0 /* LaunchMocks.swift in Sources */,
+				5B8C24962157E0C500ABEBA0 /* FirstStageMock.swift in Sources */,
+				5B8C24862157DC7000ABEBA0 /* LaunchSiteMock.swift in Sources */,
+				5B8C24882157DDAE00ABEBA0 /* LinksMock.swift in Sources */,
 				5BFF871C2152BC43008163BB /* HomePresenterTests.swift in Sources */,
+				5B8C24842157D98B00ABEBA0 /* AlertTests.swift in Sources */,
+				5B8C248E2157DF9E00ABEBA0 /* RocketMock.swift in Sources */,
+				5B8C24942157E05500ABEBA0 /* PayloadMock.swift in Sources */,
+				5B8C24922157E04100ABEBA0 /* CoreMock.swift in Sources */,
+				5B8C24902157E02900ABEBA0 /* FairingsMock.swift in Sources */,
 				5B8C247421565C5D00ABEBA0 /* LaunchesDataManagerMock.swift in Sources */,
+				5B8C24982157E0E200ABEBA0 /* SecondStageMock.swift in Sources */,
+				5B8C249A2157E10100ABEBA0 /* OrbitParamsMock.swift in Sources */,
 				5BFF87192152BC43008163BB /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

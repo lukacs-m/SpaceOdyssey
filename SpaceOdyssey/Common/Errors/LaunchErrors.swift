@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum LauncheErrors: Error {
+enum LaunchErrors: Error {
     case couldNotLoadLaunches
 }
