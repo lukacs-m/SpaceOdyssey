@@ -84,4 +84,13 @@ extension Links {
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }
+    
+    var youTubeVideoId: String? {
+        guard let link = videoLink else { return nil }
+        guard let url = URL(string: link) else { return nil }
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return nil }
+        guard let host = components.host else { return nil }
+        guard host.contains("youtube.com") else { return nil }
+        return components.queryItems?.first(where: { $0.name == "v" })?.value
+    }
 }

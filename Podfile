@@ -8,6 +8,7 @@ def common_pods
     pod 'PromiseKit'
     pod 'Kingfisher'
     pod 'SkeletonView'
+    pod 'youtube-ios-player-helper'
 end
 
 # Pods for SpaceOdyssey Testing
