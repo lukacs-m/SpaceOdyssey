@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 protocol LaunchDisplayLogic: class {
   func displayLaunch(viewModel: LaunchPage.GetLaunch.ViewModel)
@@ -21,6 +22,12 @@ class LaunchViewController: UIViewController, LaunchDisplayLogic {
   var router: (NSObjectProtocol & LaunchRoutingLogic & LaunchDataPassing)?
 
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var playerContainerView: UIView!
+    private let playerView = YTPlayerView()
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblSuccess: UILabel!
+    @IBOutlet weak var lblDescription: UILabel!
+    
     // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -47,11 +54,18 @@ class LaunchViewController: UIViewController, LaunchDisplayLogic {
     router.viewController = viewController
     router.dataStore = interactor
   }
+    
+    private func setUpUI() {
+        playerContainerView.addSubview(playerView)
+        playerView.frame = playerContainerView.bounds
+        playerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
   
   // MARK: View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpUI()
   }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,46 +84,12 @@ class LaunchViewController: UIViewController, LaunchDisplayLogic {
   
   func displayLaunch(viewModel: LaunchPage.GetLaunch.ViewModel) {
    lblTitle.text = viewModel.displayedLaunch.title
+    lblDate.text = viewModel.displayedLaunch.date
+    lblSuccess.text = viewModel.displayedLaunch.success ? "Success" : "Fail"
+    lblDescription.text = viewModel.displayedLaunch.description
     title = viewModel.displayedLaunch.title
-  }
+    guard playerView.videoUrl() == nil, let videoId = viewModel.displayedLaunch.videoUrl else { return }
+    playerView.load(withVideoId: videoId)
+    }
 }
 
-
-//
-//let smallVideoPlayerViewController = AVPlayerViewController()
-//
-//@IBOutlet weak var videoView: UIView!
-//
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//    
-//    let myFileManager = FileManager.default
-//    let mainBundle = Bundle.main
-//    let resourcesPath = mainBundle.resourcePath!
-//    
-//    guard let allItemsInTheBundle = try? myFileManager.contentsOfDirectory(atPath: resourcesPath) else {
-//        return
-//    }
-//    
-//    let videoName = "test"
-//    
-//    let videoPath = Bundle.main.path(forResource: videoName, ofType: "mp4")
-//    let videoUrl = URL(fileURLWithPath: videoPath!)
-//    
-//    smallVideoPlayerViewController.showsPlaybackControls = false
-//    smallVideoPlayerViewController.player = AVPlayer(url: videoUrl)
-//    
-//    videoView.addSubview(smallVideoPlayerViewController.view)
-//    
-//    smallVideoPlayerViewController.view.frame = videoView.frame
-//    
-//    smallVideoPlayerViewController.player?.play()
-//}
-//...
-//
-//smallVideoPlayerViewController.view.frame = videoView.bounds
-//The reason is because videoView.frame includes the origin in its superview which you don't want. videoView.bounds is just the size with an origin of 0,0.
-//
-//Of course you might want to go further set the auto-resizing mask to keep the video player frame the same like this:
-//
-//smallVideoPlayerViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

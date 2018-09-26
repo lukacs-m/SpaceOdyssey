@@ -26,9 +26,11 @@ class LaunchPresenter: LaunchPresentationLogic {
     
     let date = (launch.launchDateUTC ?? "").fromUTCToLocalDateTime()
     let title = launch.missionName ?? ""
-    let videoUrl = launch.links?.videoLink
+    let success = launch.launchSuccess ?? false
+    let description = launch.details ?? ""
+    let videoUrl = launch.links?.youTubeVideoId
     let imgUrl = launch.links?.flickrImages
-    let displayedLaunch = LaunchPage.GetLaunch.ViewModel.DisplayedLaunch(title: title, date: date)
+    let displayedLaunch = LaunchPage.GetLaunch.ViewModel.DisplayedLaunch(title: title, date: date, description: description, success: success, videoUrl: videoUrl, imgUrls: imgUrl)
     
     let viewModel = LaunchPage.GetLaunch.ViewModel(displayedLaunch: displayedLaunch)
     viewController?.displayLaunch(viewModel: viewModel)

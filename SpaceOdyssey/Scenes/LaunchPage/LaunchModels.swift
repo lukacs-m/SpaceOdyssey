@@ -27,6 +27,8 @@ enum LaunchPage {
         struct DisplayedLaunch {
             var title: String
             var date: String
+            var description: String
+            var success: Bool
             var videoUrl: String?
             var imgUrls: [String]?
         }
