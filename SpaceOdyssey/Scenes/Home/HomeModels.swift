@@ -13,7 +13,8 @@
 import UIKit
 
 enum Home {
-  // MARK: Use cases
+    
+  // MARK: Fetch the informations on space x launches
   
   enum FetchHomeLaunches {
     struct Request {

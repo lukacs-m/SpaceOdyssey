@@ -12,7 +12,5 @@
 
 import UIKit
 
-class LaunchWorker {
-  func doSomeWork() {
-  }
+final class LaunchWorker {
 }

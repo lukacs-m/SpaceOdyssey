@@ -36,20 +36,23 @@ class HomeViewControllerTests: QuickSpec {
                 LaunchesNetworkInjector.networkManager = LaunchesNetworkManagerMock()
             }
             
+            afterSuite {
+                LaunchesNetworkInjector.networkManager = LaunchesNetworkManager()
+            }
+            
             beforeEach {
-                super.setUp()
                 window = UIWindow(frame: UIScreen.main.bounds)
                 setupHomeViewController()
+            }
+            
+            afterEach {
+                window = nil
             }
             
             func loadview() {
                 window.addSubview(sut.view)
                 sut.beginAppearanceTransition(true, animated: false)
                 sut.endAppearanceTransition()
-            }
-            
-            afterEach {
-                window = nil
             }
             
             // MARK: Test doubles
@@ -60,22 +63,6 @@ class HomeViewControllerTests: QuickSpec {
                 
                 func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
                     fetchHomeLaunchesCalled = true
-                }
-            }
-            
-            class HomeRouterSpy: HomeRouter {
-                // MARK: Method call expectations
-            }
-            
-            class CollectionViewSpy: UICollectionView {
-                // MARK: Method call expectations
-
-                var reloadDataCalled = false
-
-                // MARK: Spied methods
-
-                override func reloadData() {
-                    reloadDataCalled = true
                 }
             }
             
@@ -97,21 +84,8 @@ class HomeViewControllerTests: QuickSpec {
             }
             
             context("When collection view is loaded") {
-                it("Should display view controller") {
-                    loadview()
-                    // Given
-                    let collectionViewSpy = CollectionViewSpy(frame: sut.view.frame, collectionViewLayout: layout)
-                    sut.collectionView = collectionViewSpy
-
-                    let displayedLaunches = [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: "Test", date: "Date", imgUrl: nil)]
-                    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: nil)
-
-                    sut.displayHomeLaunches(viewModel: viewModel)
-
-                    expect(collectionViewSpy.reloadDataCalled).to(beTrue())
-                }
                 
-                it("Should have one section in tableView") {
+                it("Should have one section in Collection View") {
                     loadview()
 
                     // Given

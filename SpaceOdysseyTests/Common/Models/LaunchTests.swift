@@ -29,7 +29,6 @@ class LaunchTests: QuickSpec {
                 expect(launch.flightNumber) == 68
                 expect(launch.upcoming) == false
             }
-            
         }
     }
 }

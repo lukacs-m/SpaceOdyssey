@@ -32,9 +32,10 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
         
         var response: Home.FetchHomeLaunches.Response!
-        
+        let debugMode = EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" ? true : false
+
         firstly {
-            worker.launchesDataManager.getLaunches()
+            worker.launchesDataManager.getLaunches(debugMode)
         }.done { launches in
             self.launches = launches
             response = Home.FetchHomeLaunches.Response(launches: launches, error: nil)

@@ -20,7 +20,7 @@ protocol HomeDataPassing {
   var dataStore: HomeDataStore? { get }
 }
 
-class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
+final class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
   weak var viewController: HomeViewController?
   var dataStore: HomeDataStore?
   

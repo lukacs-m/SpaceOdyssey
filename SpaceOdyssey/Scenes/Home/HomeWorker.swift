@@ -12,5 +12,5 @@
 
 import UIKit
 
-class HomeWorker: LaunchesNetworkInjected {
+final class HomeWorker: LaunchesNetworkInjected {
 }

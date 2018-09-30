@@ -22,11 +22,11 @@ extension LaunchesNetworkInjected {
 }
 
 protocol LaunchesDataManager: class {
-    func getLaunches() -> Promise<Launches>
+    func getLaunches(_ debugMode: Bool) -> Promise<Launches>
 }
 
-class LaunchesNetworkManager: LaunchesDataManager {
-    func getLaunches() -> Promise<Launches> {
-        return APIManager.callApi(SpaceXApi.launches(), dataReturnType: Launches.self)
+final class LaunchesNetworkManager: LaunchesDataManager {
+    func getLaunches(_ debugMode: Bool = false) -> Promise<Launches> {
+        return APIManager.callApi(SpaceXApi.launches(), dataReturnType: Launches.self, debugMode: debugMode)
     }
 }

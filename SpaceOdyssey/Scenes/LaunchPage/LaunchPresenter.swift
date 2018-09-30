@@ -16,11 +16,14 @@ protocol LaunchPresentationLogic {
   func presentLaunch(response: LaunchPage.GetLaunch.Response)
 }
 
-class LaunchPresenter: LaunchPresentationLogic {
+final class LaunchPresenter: LaunchPresentationLogic {
   weak var viewController: LaunchDisplayLogic?
   
-  // MARK: Do something
+  // MARK: Launch display
   
+  /// Set up the UI elements to display for the current selected launch
+  ///
+  /// - Parameter response: Contains a launch object to parse containing all information to display
   func presentLaunch(response: LaunchPage.GetLaunch.Response) {
     let launch = response.launch
     

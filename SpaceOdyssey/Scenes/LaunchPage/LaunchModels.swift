@@ -13,7 +13,8 @@
 import UIKit
 
 enum LaunchPage {
-  // MARK: Use cases
+    
+  // MARK: Get the launch 
   
   enum GetLaunch {
     struct Request {

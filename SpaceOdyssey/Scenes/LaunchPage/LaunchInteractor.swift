@@ -20,12 +20,15 @@ protocol LaunchDataStore {
    var launch: Launch! { get set }
 }
 
-class LaunchInteractor: LaunchBusinessLogic, LaunchDataStore {
+final class LaunchInteractor: LaunchBusinessLogic, LaunchDataStore {
   var presenter: LaunchPresentationLogic?
   var launch: Launch!
   
-  // MARK: Do something
+  // MARK: Launch to display
   
+  /// Set up the launch to display
+  ///
+  /// - Parameter request: The request from view controller to fetch the current launch to display
   func getLaunch(request: LaunchPage.GetLaunch.Request) {
     
     let response = LaunchPage.GetLaunch.Response(launch: launch)

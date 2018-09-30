@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		282EA38D708FE6E256EB7610 /* Pods_SpaceOdyssey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */; };
+		5B4D1F892160FE0F0097BF9C /* HomeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */; };
 		5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDCF21505FD000460572 /* AppDelegate.swift */; };
 		5B6FDDD521505FD000460572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD321505FD000460572 /* Main.storyboard */; };
 		5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD621505FD100460572 /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		37F4A193E2BA237AB17D5764 /* Pods-SpaceOdysseyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyUITests/Pods-SpaceOdysseyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FB642BCF79B369173900348 /* Pods-SpaceOdyssey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdyssey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdyssey/Pods-SpaceOdyssey.debug.xcconfig"; sourceTree = "<group>"; };
 		5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdyssey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerUITests.swift; sourceTree = "<group>"; };
 		5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceOdyssey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDCF21505FD000460572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B6FDDD421505FD000460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				5BFF87162152BC43008163BB /* HomeInteractorTests.swift */,
 				5BFF87172152BC43008163BB /* HomeWorkerTests.swift */,
 				5BFF87182152BC43008163BB /* HomePresenterTests.swift */,
+				5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				5BFF871C2152BC43008163BB /* HomePresenterTests.swift in Sources */,
 				5B8C24842157D98B00ABEBA0 /* AlertTests.swift in Sources */,
 				5B8C248E2157DF9E00ABEBA0 /* RocketMock.swift in Sources */,
+				5B4D1F892160FE0F0097BF9C /* HomeViewControllerUITests.swift in Sources */,
 				5B8C24942157E05500ABEBA0 /* PayloadMock.swift in Sources */,
 				5B8C24922157E04100ABEBA0 /* CoreMock.swift in Sources */,
 				5B8C24902157E02900ABEBA0 /* FairingsMock.swift in Sources */,
@@ -1062,7 +1066,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdyssey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdyssey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1080,7 +1087,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdyssey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdyssey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1097,7 +1107,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdysseyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1115,7 +1129,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdysseyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1132,7 +1150,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdysseyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1149,7 +1171,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99ZMAPWT9Y;
 				INFOPLIST_FILE = SpaceOdysseyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martin.SpaceOdysseyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
