@@ -16,7 +16,7 @@ protocol HomePresentationLogic {
   func presentFetchHomeData(response: Home.FetchHomeLaunches.Response)
 }
 
-class HomePresenter: HomePresentationLogic {
+final class HomePresenter: HomePresentationLogic {
   weak var viewController: HomeDisplayLogic?
     
   // MARK: Format the data to be display on home page

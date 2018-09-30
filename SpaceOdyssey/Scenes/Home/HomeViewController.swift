@@ -91,6 +91,14 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
         flowLayout.sectionInset = UIEdgeInsets(top: Style.Size.margin, left: Style.Size.margin, bottom: 0.0, right: Style.Size.margin)
     }
     
+    private func setRefreshControl() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refresher.endRefreshing()
+        }
+        guard collectionView.refreshControl == nil else { return }
+        collectionView.refreshControl = refresher
+    }
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
@@ -149,14 +157,9 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
         collectionView.reloadData()
     }
     
-    private func setRefreshControl() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.refresher.endRefreshing()
-        }
-        guard collectionView.refreshControl == nil else { return }
-        collectionView.refreshControl = refresher
-    }
 }
+
+// MARK: Collection view delegates
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

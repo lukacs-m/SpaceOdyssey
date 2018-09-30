@@ -10,11 +10,12 @@ import Foundation
 import PromiseKit
 @testable import SpaceOdyssey
 
-class LaunchesNetworkManagerMock: LaunchesDataManager {
+final class LaunchesNetworkManagerMock: LaunchesDataManager {
     var getLaunchesCalled = false
     
-    func getLaunches() -> Promise<Launches> {
+    func getLaunches(_ debugMode: Bool = false) -> Promise<Launches> {
         getLaunchesCalled = true
-        return APIManager.callApi(SpaceXApi.launches(), dataReturnType: Launches.self, test: true)
+        let test = EnvironmentVariables.spaceOdyssey_test_env.value == "test" ? true : false
+        return APIManager.callApi(SpaceXApi.launches(), dataReturnType: Launches.self, test: test)
     }
 }

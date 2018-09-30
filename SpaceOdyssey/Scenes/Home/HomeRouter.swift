@@ -20,26 +20,37 @@ protocol HomeDataPassing {
   var dataStore: HomeDataStore? { get }
 }
 
-class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
+final class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
   weak var viewController: HomeViewController?
   var dataStore: HomeDataStore?
   
   // MARK: Routing
   
     func showLaunchPage(index: Int) {
-        let launch = dataStore?.launches?[index]
-        // TODO pass launch to laundetail vc
+        guard let launch = dataStore?.launches?[index] else { return }
+            guard let destinationVC = viewController?.navigationController?.viewControllers.first(where: { $0 is LaunchViewController }) as? LaunchViewController
+                else {
+                    // Show order not in stack so push fresh
+                    let destinationVC = LaunchViewController(nibName: "LaunchViewController", bundle: nil)
+                    var destinationDS = destinationVC.router!.dataStore!
+                    self.passDataToLaunchPage(source: launch, destination: &destinationDS)
+                    viewController!.navigationController?.pushViewController(destinationVC, animated: true)
+                    return
+            }
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToLaunchPage(source: launch, destination: &destinationDS)
+            navigateToLaunchPage(source: viewController!, destination: destinationVC)
     }
 
   // MARK: Navigation
   
-  func navigateToLaunchPage(source: HomeViewController, destination: UIViewController) {
-    source.show(destination, sender: nil)
+  func navigateToLaunchPage(source: HomeViewController, destination: LaunchViewController) {
+    source.navigationController?.popToViewController(destination, animated: true)
   }
   
   // MARK: Passing data
   
-//  func passDataToLaunchPage(source: HomeDataStore, destination: inout LaunchDataStore) {
-//    destination.launch = source.name
-//  }
+  func passDataToLaunchPage(source: Launch, destination: inout LaunchDataStore) {
+    destination.launch = source
+  }
 }

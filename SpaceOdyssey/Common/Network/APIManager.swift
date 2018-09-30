@@ -10,19 +10,13 @@ import PromiseKit
 import Moya
 
 protocol GeneralAPI {
-    static func callApi<T: TargetType, U: Decodable>(_ target: T, dataReturnType: U.Type, test: Bool) -> Promise<U>
+    static func callApi<T: TargetType, U: Decodable>(_ target: T, dataReturnType: U.Type, test: Bool, debugMode: Bool) -> Promise<U>
 }
 
 struct APIManager: GeneralAPI {
     
-    static func callApi<T: TargetType, U: Decodable>(_ target: T, dataReturnType: U.Type, test: Bool = false) -> Promise<U> {
+    static func callApi<T: TargetType, U: Decodable>(_ target: T, dataReturnType: U.Type, test: Bool = false, debugMode: Bool = false) -> Promise<U> {
         
-        var debugMode  = false
-        
-        if EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" {
-            debugMode = true
-        }
-
         let provider = test ? (MoyaProvider<T>(stubClosure: MoyaProvider.immediatelyStub)) :
             (debugMode ? MoyaProvider<T>(plugins: [NetworkLoggerPlugin(verbose: true)]) : MoyaProvider<T>())
         

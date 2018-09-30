@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		282EA38D708FE6E256EB7610 /* Pods_SpaceOdyssey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */; };
+		5B4D1F892160FE0F0097BF9C /* HomeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */; };
 		5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FDDCF21505FD000460572 /* AppDelegate.swift */; };
 		5B6FDDD521505FD000460572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD321505FD000460572 /* Main.storyboard */; };
 		5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6FDDD621505FD100460572 /* Assets.xcassets */; };
@@ -34,6 +35,13 @@
 		5B8C24962157E0C500ABEBA0 /* FirstStageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24952157E0C500ABEBA0 /* FirstStageMock.swift */; };
 		5B8C24982157E0E200ABEBA0 /* SecondStageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24972157E0E200ABEBA0 /* SecondStageMock.swift */; };
 		5B8C249A2157E10100ABEBA0 /* OrbitParamsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24992157E10100ABEBA0 /* OrbitParamsMock.swift */; };
+		5B8C24A22157F03E00ABEBA0 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C249C2157F03E00ABEBA0 /* LaunchPresenter.swift */; };
+		5B8C24A32157F03E00ABEBA0 /* LaunchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C249D2157F03E00ABEBA0 /* LaunchWorker.swift */; };
+		5B8C24A42157F03E00ABEBA0 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C249E2157F03E00ABEBA0 /* LaunchRouter.swift */; };
+		5B8C24A52157F03E00ABEBA0 /* LaunchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C249F2157F03E00ABEBA0 /* LaunchModels.swift */; };
+		5B8C24A62157F03E00ABEBA0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24A02157F03E00ABEBA0 /* LaunchViewController.swift */; };
+		5B8C24A72157F03E00ABEBA0 /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C24A12157F03E00ABEBA0 /* LaunchInteractor.swift */; };
+		5B8C24A921580F1200ABEBA0 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8C24A821580F1200ABEBA0 /* LaunchViewController.xib */; };
 		5BFF870D2152BC1B008163BB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87072152BC1B008163BB /* HomePresenter.swift */; };
 		5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87082152BC1B008163BB /* HomeWorker.swift */; };
 		5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF87092152BC1B008163BB /* HomeRouter.swift */; };
@@ -95,6 +103,7 @@
 		37F4A193E2BA237AB17D5764 /* Pods-SpaceOdysseyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdysseyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdysseyUITests/Pods-SpaceOdysseyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FB642BCF79B369173900348 /* Pods-SpaceOdyssey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceOdyssey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceOdyssey/Pods-SpaceOdyssey.debug.xcconfig"; sourceTree = "<group>"; };
 		5A8FB32370DBA4CE80B602A4 /* Pods_SpaceOdyssey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceOdyssey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerUITests.swift; sourceTree = "<group>"; };
 		5B6FDDCC21505FD000460572 /* SpaceOdyssey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceOdyssey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6FDDCF21505FD000460572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B6FDDD421505FD000460572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +136,13 @@
 		5B8C24952157E0C500ABEBA0 /* FirstStageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStageMock.swift; sourceTree = "<group>"; };
 		5B8C24972157E0E200ABEBA0 /* SecondStageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStageMock.swift; sourceTree = "<group>"; };
 		5B8C24992157E10100ABEBA0 /* OrbitParamsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitParamsMock.swift; sourceTree = "<group>"; };
+		5B8C249C2157F03E00ABEBA0 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		5B8C249D2157F03E00ABEBA0 /* LaunchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchWorker.swift; sourceTree = "<group>"; };
+		5B8C249E2157F03E00ABEBA0 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
+		5B8C249F2157F03E00ABEBA0 /* LaunchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModels.swift; sourceTree = "<group>"; };
+		5B8C24A02157F03E00ABEBA0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		5B8C24A12157F03E00ABEBA0 /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
+		5B8C24A821580F1200ABEBA0 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		5BFF87072152BC1B008163BB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5BFF87082152BC1B008163BB /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		5BFF87092152BC1B008163BB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -352,9 +368,24 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		5B8C249B2157F01C00ABEBA0 /* LaunchPage */ = {
+			isa = PBXGroup;
+			children = (
+				5B8C249C2157F03E00ABEBA0 /* LaunchPresenter.swift */,
+				5B8C249D2157F03E00ABEBA0 /* LaunchWorker.swift */,
+				5B8C249E2157F03E00ABEBA0 /* LaunchRouter.swift */,
+				5B8C249F2157F03E00ABEBA0 /* LaunchModels.swift */,
+				5B8C24A02157F03E00ABEBA0 /* LaunchViewController.swift */,
+				5B8C24A12157F03E00ABEBA0 /* LaunchInteractor.swift */,
+				5B8C24A821580F1200ABEBA0 /* LaunchViewController.xib */,
+			);
+			path = LaunchPage;
+			sourceTree = "<group>";
+		};
 		5BFF87052152BBF7008163BB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5B8C249B2157F01C00ABEBA0 /* LaunchPage */,
 				5BFF87062152BC00008163BB /* Home */,
 			);
 			path = Scenes;
@@ -390,6 +421,7 @@
 				5BFF87162152BC43008163BB /* HomeInteractorTests.swift */,
 				5BFF87172152BC43008163BB /* HomeWorkerTests.swift */,
 				5BFF87182152BC43008163BB /* HomePresenterTests.swift */,
+				5B4D1F882160FE0F0097BF9C /* HomeViewControllerUITests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -623,6 +655,7 @@
 				5BFF87592153128C008163BB /* HomeCollectionViewCell.xib in Resources */,
 				5B6FDDD721505FD100460572 /* Assets.xcassets in Resources */,
 				5B6FDDD521505FD000460572 /* Main.storyboard in Resources */,
+				5B8C24A921580F1200ABEBA0 /* LaunchViewController.xib in Resources */,
 				5BFF872C2152C25B008163BB /* Launches.json in Resources */,
 				5BFF871E2152BC68008163BB /* HomeViewController.xib in Resources */,
 			);
@@ -696,6 +729,7 @@
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -705,6 +739,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -805,10 +840,13 @@
 				5BFF87582153128C008163BB /* HomeCollectionViewCell.swift in Sources */,
 				5BFF87412152CDF5008163BB /* FirstStage.swift in Sources */,
 				5BFF87512152D041008163BB /* CommonHelpers.swift in Sources */,
+				5B8C24A42157F03E00ABEBA0 /* LaunchRouter.swift in Sources */,
 				5BFF874B2152CE67008163BB /* Telemetry.swift in Sources */,
 				5BFF87252152BF36008163BB /* APIManager.swift in Sources */,
 				5BFF87272152BF9C008163BB /* SpaceXApi.swift in Sources */,
+				5B8C24A62157F03E00ABEBA0 /* LaunchViewController.swift in Sources */,
 				5BFF87352152CCCB008163BB /* Launch.swift in Sources */,
+				5B8C24A72157F03E00ABEBA0 /* LaunchInteractor.swift in Sources */,
 				5BFF870E2152BC1B008163BB /* HomeWorker.swift in Sources */,
 				5B8C246C21551E5700ABEBA0 /* UIImageView+Extensions.swift in Sources */,
 				5BFF87292152BFE5008163BB /* SpaceXApiMock.swift in Sources */,
@@ -817,8 +855,10 @@
 				5B6FDDD021505FD000460572 /* AppDelegate.swift in Sources */,
 				5BFF873F2152CDDB008163BB /* Fairings.swift in Sources */,
 				5BFF87432152CE09008163BB /* Core.swift in Sources */,
+				5B8C24A32157F03E00ABEBA0 /* LaunchWorker.swift in Sources */,
 				5BFF87372152CD89008163BB /* LaunchSite.swift in Sources */,
 				5BFF87392152CDA5008163BB /* Links.swift in Sources */,
+				5B8C24A22157F03E00ABEBA0 /* LaunchPresenter.swift in Sources */,
 				5B8C24812157D7C400ABEBA0 /* Optional+Extensions.swift in Sources */,
 				5BFF87102152BC1B008163BB /* HomeModels.swift in Sources */,
 				5BFF87472152CE31008163BB /* Payload.swift in Sources */,
@@ -829,6 +869,7 @@
 				5BFF873D2152CDC2008163BB /* Rocket.swift in Sources */,
 				5B8C246F215520C700ABEBA0 /* Alert.swift in Sources */,
 				5BFF870F2152BC1B008163BB /* HomeRouter.swift in Sources */,
+				5B8C24A52157F03E00ABEBA0 /* LaunchModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,6 +890,7 @@
 				5BFF871C2152BC43008163BB /* HomePresenterTests.swift in Sources */,
 				5B8C24842157D98B00ABEBA0 /* AlertTests.swift in Sources */,
 				5B8C248E2157DF9E00ABEBA0 /* RocketMock.swift in Sources */,
+				5B4D1F892160FE0F0097BF9C /* HomeViewControllerUITests.swift in Sources */,
 				5B8C24942157E05500ABEBA0 /* PayloadMock.swift in Sources */,
 				5B8C24922157E04100ABEBA0 /* CoreMock.swift in Sources */,
 				5B8C24902157E02900ABEBA0 /* FairingsMock.swift in Sources */,
