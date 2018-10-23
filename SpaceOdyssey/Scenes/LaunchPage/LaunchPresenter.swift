@@ -28,7 +28,7 @@ final class LaunchPresenter: LaunchPresentationLogic {
     let launch = response.launch
     
     let date = (launch.launchDateUTC ?? "").fromUTCToLocalDateTime()
-    let title = launch.missionName ?? ""
+    let title = launch.missionName
     let success = launch.launchSuccess ?? false
     let description = launch.details ?? ""
     let videoUrl = launch.links?.youTubeVideoId
