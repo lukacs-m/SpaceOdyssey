@@ -15,9 +15,9 @@ struct Payload: Codable {
     let customers: [String]?
     let nationality: String?
     let manufacturer: String?
-    let payloadType: PayloadType?
+    let payloadType: String?
     let payloadMassKg, payloadMassLbs: Double?
-    let orbit: Orbit?
+    let orbit: String?
     let orbitParams: OrbitParams?
     let capSerial: String?
     let massReturnedKg, massReturnedLbs: Double?
@@ -64,10 +64,10 @@ extension Payload {
         customers: [String]?? = nil,
         nationality: String?? = nil,
         manufacturer: String?? = nil,
-        payloadType: PayloadType?? = nil,
+        payloadType: String?? = nil,
         payloadMassKg: Double?? = nil,
         payloadMassLbs: Double?? = nil,
-        orbit: Orbit?? = nil,
+        orbit: String?? = nil,
         orbitParams: OrbitParams?? = nil,
         capSerial: String?? = nil,
         massReturnedKg: Double?? = nil,

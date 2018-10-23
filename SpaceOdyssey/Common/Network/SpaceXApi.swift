@@ -20,7 +20,7 @@ extension SpaceXApi: TargetType {
     }
     
     var baseURL: URL {
-        guard let url = URL(string: "https://api.spacexdata.com/v2") else { fatalError("baseURL could not be configured") }
+        guard let url = URL(string: "https://api.spacexdata.com/v3") else { fatalError("baseURL could not be configured") }
         return url
     }
     

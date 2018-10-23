@@ -9,9 +9,9 @@
 import Foundation
 
 struct Rocket: Codable {
-    let rocketID: RocketID?
-    let rocketName: RocketName?
-    let rocketType: RocketType?
+    let rocketID: String?
+    let rocketName: String?
+    let rocketType: String?
     let firstStage: FirstStage?
     let secondStage: SecondStage?
     let fairings: Fairings?
@@ -43,9 +43,9 @@ extension Rocket {
     }
     
     func with(
-        rocketID: RocketID?? = nil,
-        rocketName: RocketName?? = nil,
-        rocketType: RocketType?? = nil,
+        rocketID: String?? = nil,
+        rocketName: String?? = nil,
+        rocketType: String?? = nil,
         firstStage: FirstStage?? = nil,
         secondStage: SecondStage?? = nil,
         fairings: Fairings?? = nil

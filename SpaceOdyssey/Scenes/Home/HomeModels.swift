@@ -18,11 +18,12 @@ enum Home {
   
   enum FetchHomeLaunches {
     struct Request {
+       var type: Int
     }
     
     struct Response {
         var launches: [Launch]?
-        var error: Error?
+        var error: LaunchErrors?
     }
     
     struct ViewModel {
@@ -35,4 +36,16 @@ enum Home {
         var error: Error?
     }
   }
+    
+    enum SearchLaunches {
+        struct Request {
+            var searchWord: String
+        }
+        
+        struct Response {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

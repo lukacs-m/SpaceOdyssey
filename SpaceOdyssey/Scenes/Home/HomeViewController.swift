@@ -12,10 +12,13 @@
 
 import UIKit
 import PromiseKit
+import SnapKit
 import SkeletonView
 
 protocol HomeDisplayLogic: class {
     func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel)
+    func displayHomeSortedLaunches(viewModel: Home.FetchHomeLaunches.ViewModel)
+   
 }
 
 final class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -23,13 +26,23 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
     // MARK: Outlets
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: Variables
+    lazy var collectionView: UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        cv.backgroundColor = UIColor.white
+        cv.dataSource = self
+        cv.delegate = self
+        return cv
+    }()
     
-    private var collectionViewSizeChanged: Bool = false
-    private var flowLayout: UICollectionViewFlowLayout!
-    var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+    lazy private var flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = Style.Size.margin
+        layout.minimumLineSpacing = Style.Size.margin
+        layout.sectionInset = UIEdgeInsets(top: 0, left: Style.Size.margin, bottom: 0.0, right: Style.Size.margin)
+        return layout
+    }()
+    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .black
@@ -37,6 +50,23 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
         return refreshControl
     }()
     
+    lazy var searchController: UISearchController = {
+        var controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.tintColor = .white
+        controller.searchBar.placeholder = "Search Launches"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
+    let segmentedControl = UISegmentedControl(items: ["Past Launches", "Upcoming Launches"])
+    
+    // MARK: Variables
+    
+    private var collectionViewSizeChanged: Bool = false
+    var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+  
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -68,27 +98,38 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
         view.isSkeletonable = true
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
+        nav?.isTranslucent = false
         nav?.tintColor = UIColor.white
-        nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        title = "Home To Space X Launches"
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Home To Space X Launches"
+        self.navigationItem.searchController = searchController
+        view.backgroundColor = .white
+        definesPresentationContext = true
+        setupSegmentedControl()
         setupCollectionView()
-        setupFlowLayout()
+    }
+    
+    private func setupSegmentedControl() {
+        segmentedControl.tintColor = .black
+        view.addSubview(segmentedControl)
+        segmentedControl.addTarget(self, action: #selector(fetchSortedLaunches), for: .valueChanged)
+        segmentedControl.snp.updateConstraints { (make) in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.width.equalToSuperview().offset(-30)
+            make.centerX.equalToSuperview()
+        }
+        segmentedControl.selectedSegmentIndex = 0
     }
     
     private func setupCollectionView() {
-        flowLayout = UICollectionViewFlowLayout()
-        collectionView.collectionViewLayout = flowLayout
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        view.addSubview(collectionView)
+        collectionView.snp.updateConstraints { (make) in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(10)
+            make.left.bottom.right.equalToSuperview()
+        }
         collectionView.isSkeletonable = true
         collectionView.backgroundColor = .clear
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
-    }
-    
-    private func setupFlowLayout() {
-        flowLayout.minimumInteritemSpacing = Style.Size.margin
-        flowLayout.minimumLineSpacing = Style.Size.margin
-        flowLayout.sectionInset = UIEdgeInsets(top: Style.Size.margin, left: Style.Size.margin, bottom: 0.0, right: Style.Size.margin)
     }
     
     private func setRefreshControl() {
@@ -138,17 +179,36 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
             collectionView.performBatchUpdates({}, completion: nil)
         }
     }
-    
+
     // MARK: Fetch the data to display in the home collection view
     
     @objc func fetchHomeLaunches() {
-        let request = Home.FetchHomeLaunches.Request()
+        let request = Home.FetchHomeLaunches.Request(type: segmentedControl.selectedSegmentIndex)
         interactor?.fetchHomeLaunches(request: request)
     }
     
     func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
         view.hideSkeleton()
         setRefreshControl()
+        setUpLaunchesDisplay(viewModel: viewModel)
+    }
+    
+    // MARK: Sets the type of launches to display
+    
+    @objc func fetchSortedLaunches(segment: UISegmentedControl) {
+        let request = Home.FetchHomeLaunches.Request(type: segmentedControl.selectedSegmentIndex)
+        interactor?.fetchHomeSortedLaunches(request: request)
+    }
+    
+    func displayHomeSortedLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+        setRefreshControl()
+        setUpLaunchesDisplay(viewModel: viewModel)
+        if !displayedLaunches.isEmpty {
+            collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
+    }
+    
+    private func setUpLaunchesDisplay(viewModel: Home.FetchHomeLaunches.ViewModel) {
         guard viewModel.error == nil else {
             Alert.showUnableToRetrieveDataAlert(on: self)
             return
@@ -167,7 +227,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell, !displayedLaunches.isEmpty else {
             return UICollectionViewCell()
         }
         let launch = self.displayedLaunches[indexPath.row]
@@ -206,5 +266,15 @@ extension HomeViewController: SkeletonCollectionViewDataSource {
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
+    }
+}
+
+// MARK: - Search bar functionnality
+
+extension HomeViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let request = Home.SearchLaunches.Request(searchWord: searchController.searchBar.text ?? "")
+        interactor?.fetchSearchLaunches(request: request)
     }
 }
