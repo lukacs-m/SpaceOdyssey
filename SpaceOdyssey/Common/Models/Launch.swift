@@ -12,7 +12,7 @@ typealias Launches = [Launch]
 
 struct Launch: Codable {
     let flightNumber: Int?
-    let missionName: String?
+    let missionName: String
     let missionID: [String]?
     let upcoming: Bool?
     let launchYear: String?
@@ -20,7 +20,7 @@ struct Launch: Codable {
     let launchDateUTC: String?
     let launchDateLocal: String?
     let isTentative: Bool?
-    let tentativeMaxPrecision: TentativeMaxPrecision?
+    let tentativeMaxPrecision: String?
     let rocket: Rocket?
     let ships: [String]?
     let telemetry: Telemetry?
@@ -71,7 +71,7 @@ extension Launch {
     
     func with(
         flightNumber: Int?? = nil,
-        missionName: String?? = nil,
+        missionName: String,
         missionID: [String]?? = nil,
         upcoming: Bool?? = nil,
         launchYear: String?? = nil,
@@ -79,7 +79,7 @@ extension Launch {
         launchDateUTC: String?? = nil,
         launchDateLocal: String?? = nil,
         isTentative: Bool?? = nil,
-        tentativeMaxPrecision: TentativeMaxPrecision?? = nil,
+        tentativeMaxPrecision: String?? = nil,
         rocket: Rocket?? = nil,
         ships: [String]?? = nil,
         telemetry: Telemetry?? = nil,
@@ -93,7 +93,7 @@ extension Launch {
         ) -> Launch {
         return Launch(
             flightNumber: flightNumber ?? self.flightNumber,
-            missionName: missionName ?? self.missionName,
+            missionName: missionName,
             missionID: missionID ?? self.missionID,
             upcoming: upcoming ?? self.upcoming,
             launchYear: launchYear ?? self.launchYear,

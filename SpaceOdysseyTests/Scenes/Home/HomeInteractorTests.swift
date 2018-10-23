@@ -38,11 +38,22 @@ class HomeInteractorTests: QuickSpec {
             // MARK: Test doubles
             
             class HomePresentationLogicSpy: HomePresentationLogic {
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
                 var presentFetchHomeDataCalled = false
                 
                 func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
                     presentFetchHomeDataCalled = true
                 }
+<<<<<<< HEAD
+=======
+                
+                func presentFetchHomeSortedData(response: Home.FetchHomeLaunches.Response) {
+                    
+                }
+>>>>>>> develop
             }
             
             // MARK: Tests
@@ -53,7 +64,11 @@ class HomeInteractorTests: QuickSpec {
                     let spy = HomePresentationLogicSpy()
                     let spyWorker = sut.worker.launchesDataManager as! LaunchesNetworkManagerMock
                     sut.presenter = spy
+<<<<<<< HEAD
                     let request = Home.FetchHomeLaunches.Request()
+=======
+                    let request = Home.FetchHomeLaunches.Request(type: 0)
+>>>>>>> develop
                     
                     sut.fetchHomeLaunches(request: request)
                     expect(spy.presentFetchHomeDataCalled).toEventually(beTrue())

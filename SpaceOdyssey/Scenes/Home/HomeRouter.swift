@@ -27,7 +27,7 @@ final class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
   // MARK: Routing
   
     func showLaunchPage(index: Int) {
-        guard let launch = dataStore?.launches?[index] else { return }
+        guard let launch = dataStore?.filteredLaunches?[index] else { return }
             guard let destinationVC = viewController?.navigationController?.viewControllers.first(where: { $0 is LaunchViewController }) as? LaunchViewController
                 else {
                     // Show order not in stack so push fresh

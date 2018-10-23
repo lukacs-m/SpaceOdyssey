@@ -11,7 +11,9 @@ import Kingfisher
 
 extension UIImageView {
     func download(image url: String) {
+
         guard let imageURL = URL(string: url) else {
+            self.image = UIImage(named: "square-logo")
             return
         }
         let image = UIImage(named: "spaceX")

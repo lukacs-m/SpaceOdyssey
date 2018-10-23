@@ -8,6 +8,8 @@ def common_pods
     pod 'PromiseKit'
     pod 'Kingfisher'
     pod 'SkeletonView'
+    pod 'SnapKit'
+    pod 'SwiftIcons'
     pod 'youtube-ios-player-helper'
 end
 
@@ -42,8 +44,10 @@ end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '4.0'
+        if ['Moya', 'SwiftIcons' ].include? target.name
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.0'
+            end
         end
     end
 end

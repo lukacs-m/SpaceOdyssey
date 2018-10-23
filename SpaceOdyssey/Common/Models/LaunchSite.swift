@@ -9,9 +9,9 @@
 import Foundation
 
 struct LaunchSite: Codable {
-    let siteID: SiteID?
-    let siteName: SiteName?
-    let siteNameLong: SiteNameLong?
+    let siteID: String?
+    let siteName: String?
+    let siteNameLong: String?
     
     enum CodingKeys: String, CodingKey {
         case siteID = "site_id"
@@ -37,9 +37,9 @@ extension LaunchSite {
     }
     
     func with(
-        siteID: SiteID?? = nil,
-        siteName: SiteName?? = nil,
-        siteNameLong: SiteNameLong?? = nil
+        siteID: String?? = nil,
+        siteName: String?? = nil,
+        siteNameLong: String?? = nil
         ) -> LaunchSite {
         return LaunchSite(
             siteID: siteID ?? self.siteID,
