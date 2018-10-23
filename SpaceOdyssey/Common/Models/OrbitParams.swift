@@ -9,11 +9,11 @@
 import Foundation
 
 struct OrbitParams: Codable {
-    let referenceSystem: ReferenceSystem?
-    let regime: Regime?
+    let referenceSystem: String?
+    let regime: String?
     let longitude, semiMajorAxisKM, eccentricity, periapsisKM: Double?
     let apoapsisKM, inclinationDeg, periodMin: Double?
-    let lifespanYears: Int?
+    let lifespanYears: Double?
     let epoch: String?
     let meanMotion, raan, argOfPericenter, meanAnomaly: Double?
     
@@ -52,8 +52,8 @@ extension OrbitParams {
     }
     
     func with(
-        referenceSystem: ReferenceSystem?? = nil,
-        regime: Regime?? = nil,
+        referenceSystem: String?? = nil,
+        regime: String?? = nil,
         longitude: Double?? = nil,
         semiMajorAxisKM: Double?? = nil,
         eccentricity: Double?? = nil,
@@ -61,7 +61,7 @@ extension OrbitParams {
         apoapsisKM: Double?? = nil,
         inclinationDeg: Double?? = nil,
         periodMin: Double?? = nil,
-        lifespanYears: Int?? = nil,
+        lifespanYears: Double?? = nil,
         epoch: String?? = nil,
         meanMotion: Double?? = nil,
         raan: Double?? = nil,

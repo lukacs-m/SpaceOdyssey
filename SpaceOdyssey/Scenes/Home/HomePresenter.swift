@@ -13,29 +13,40 @@
 import UIKit
 
 protocol HomePresentationLogic {
-  func presentFetchHomeData(response: Home.FetchHomeLaunches.Response)
+    func presentFetchHomeData(response: Home.FetchHomeLaunches.Response)
+    func presentFetchHomeSortedData(response: Home.FetchHomeLaunches.Response)
 }
 
 final class HomePresenter: HomePresentationLogic {
-  weak var viewController: HomeDisplayLogic?
+    weak var viewController: HomeDisplayLogic?
     
-  // MARK: Format the data to be display on home page
-  
-  func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
-    var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+    // MARK: Format the data to be display on home page
     
-    if let launches = response.launches {
-        for launch in launches {
-            let date = (launch.launchDateUTC ?? "").fromUTCToLocalDateTime()
-            let name = launch.missionName
-            let imgUrl = launch.links?.missionPatch
-            
-            let displayedlaunch = Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: name, date: date, imgUrl: imgUrl)
-            displayedLaunches.append(displayedlaunch)
-        }
+    func presentFetchHomeData(response: Home.FetchHomeLaunches.Response) {
+        
+        let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: getDisplayedLaunches(response: response), error: response.error)
+        viewController?.displayHomeLaunches(viewModel: viewModel)
     }
     
-    let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: displayedLaunches, error: response.error)
-    viewController?.displayHomeLaunches(viewModel: viewModel)
-  }
+    func presentFetchHomeSortedData(response: Home.FetchHomeLaunches.Response) {
+        let viewModel = Home.FetchHomeLaunches.ViewModel(displayedLaunches: getDisplayedLaunches(response: response), error: response.error)
+        viewController?.displayHomeLaunches(viewModel: viewModel)
+    }
+    
+    private func getDisplayedLaunches(response: Home.FetchHomeLaunches.Response) -> [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] {
+        var displayedLaunches: [Home.FetchHomeLaunches.ViewModel.DisplayedLaunch] = []
+        
+        if let launches = response.launches {
+            for launch in launches {
+                let date = (launch.launchDateUTC ?? "").fromUTCToLocalDateTime()
+                let name = launch.missionName
+                let imgUrl = launch.links?.missionPatch
+                
+                let displayedlaunch = Home.FetchHomeLaunches.ViewModel.DisplayedLaunch(name: name, date: date, imgUrl: imgUrl)
+                displayedLaunches.append(displayedlaunch)
+            }
+        }
+        
+        return displayedLaunches
+    }
 }

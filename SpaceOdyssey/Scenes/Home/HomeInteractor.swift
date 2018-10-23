@@ -15,10 +15,12 @@ import PromiseKit
 
 protocol HomeBusinessLogic {
     func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request)
+    func fetchHomeSortedLaunches(request: Home.FetchHomeLaunches.Request)
+     func fetchSearchLaunches(request: Home.SearchLaunches.Request)
 }
 
 protocol HomeDataStore {
-    var launches: [Launch]? { get }
+    var filteredLaunches: [Launch]? { get }
 }
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
@@ -26,23 +28,50 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     var worker = HomeWorker()
     var launches: [Launch]?
+    var filteredLaunches: [Launch]?
+    var searchText = ""
+    var typeOfLaunches = 0
     
     // MARK: Fetches the launches from space x api
     
     func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
         
         var response: Home.FetchHomeLaunches.Response!
-        let debugMode = EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" ? true : false
-
+//        let debugMode = EnvironmentVariables.spaceOdyssey_verbose_level.value == "verbose" ? true : false
+        let debugMode = false
+        
         firstly {
             worker.launchesDataManager.getLaunches(debugMode)
         }.done { launches in
             self.launches = launches
-            response = Home.FetchHomeLaunches.Response(launches: launches, error: nil)
+            self.setFilteredLaunches(launches)
+            response = Home.FetchHomeLaunches.Response(launches: self.filteredLaunches, error: nil)
         }.catch { error in
-            response = Home.FetchHomeLaunches.Response(launches: nil, error: error)
+            response = Home.FetchHomeLaunches.Response(launches: nil, error: LaunchErrors.couldNotLoadLaunches(error: error.localizedDescription))
         }.finally {
             self.presenter?.presentFetchHomeData(response: response)
         }
+    }
+    
+    func fetchHomeSortedLaunches(request: Home.FetchHomeLaunches.Request) {
+        guard let launches = self.launches else { return }
+        typeOfLaunches = request.type
+        setFilteredLaunches(launches)
+        let response = Home.FetchHomeLaunches.Response(launches: filteredLaunches, error: nil)
+        self.presenter?.presentFetchHomeSortedData(response: response)
+    }
+    
+    func fetchSearchLaunches(request: Home.SearchLaunches.Request) {
+        guard let launches = self.launches else { return }
+        searchText = request.searchWord
+        setFilteredLaunches(launches)
+        let response = Home.FetchHomeLaunches.Response(launches: filteredLaunches, error: nil)
+        self.presenter?.presentFetchHomeSortedData(response: response)
+    }
+
+    private func setFilteredLaunches(_ launches: [Launch]) {
+        filteredLaunches = typeOfLaunches == 0 ? launches.filter { $0.upcoming == false } : launches.filter { $0.upcoming == true }
+        guard !searchText.isEmpty, let currentLaunches = filteredLaunches else { return }
+        filteredLaunches = currentLaunches.filter { $0.missionName.lowercased().contains(searchText.lowercased()) }
     }
 }

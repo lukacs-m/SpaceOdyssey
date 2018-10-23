@@ -15,8 +15,8 @@ struct Core: Codable {
     let reused: Bool?
     let landSuccess: Bool?
     let landingIntent: Bool?
-    let landingType: LandingType?
-    let landingVehicle: LandingVehicle?
+    let landingType: String?
+    let landingVehicle: String?
     
     enum CodingKeys: String, CodingKey {
         case coreSerial = "core_serial"
@@ -51,8 +51,8 @@ extension Core {
         reused: Bool?? = nil,
         landSuccess: Bool?? = nil,
         landingIntent: Bool?? = nil,
-        landingType: LandingType?? = nil,
-        landingVehicle: LandingVehicle?? = nil
+        landingType: String?? = nil,
+        landingVehicle: String?? = nil
         ) -> Core {
         return Core(
             coreSerial: coreSerial ?? self.coreSerial,

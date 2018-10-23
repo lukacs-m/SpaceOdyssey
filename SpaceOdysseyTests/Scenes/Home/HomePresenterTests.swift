@@ -39,12 +39,17 @@ class HomePresenterTests: QuickSpec {
             // MARK: Test doubles
             
             class HomeDisplayLogicSpy: HomeDisplayLogic {
+
                 var displayHomeLaunchesCalled = false
                 var viewModel: Home.FetchHomeLaunches.ViewModel!
                 
                 func displayHomeLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
                     self.viewModel = viewModel
                     displayHomeLaunchesCalled = true
+                }
+                
+                func displayHomeSortedLaunches(viewModel: Home.FetchHomeLaunches.ViewModel) {
+                    
                 }
             }
             

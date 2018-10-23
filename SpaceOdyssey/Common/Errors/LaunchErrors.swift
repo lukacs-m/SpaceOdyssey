@@ -9,5 +9,5 @@
 import Foundation
 
 enum LaunchErrors: Error {
-    case couldNotLoadLaunches
+    case couldNotLoadLaunches(error: String)
 }

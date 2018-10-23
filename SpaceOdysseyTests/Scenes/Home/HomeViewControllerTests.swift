@@ -60,9 +60,16 @@ class HomeViewControllerTests: QuickSpec {
             class HomeBusinessLogicSpy: HomeBusinessLogic {
                 var fetchHomeLaunchesCalled = false
                 
-                
                 func fetchHomeLaunches(request: Home.FetchHomeLaunches.Request) {
                     fetchHomeLaunchesCalled = true
+                }
+                
+                func fetchHomeSortedLaunches(request: Home.FetchHomeLaunches.Request) {
+                    
+                }
+                
+                func fetchSearchLaunches(request: Home.SearchLaunches.Request) {
+                    
                 }
             }
             
@@ -92,7 +99,7 @@ class HomeViewControllerTests: QuickSpec {
                     let collectionView = sut.collectionView
 
                     // When
-                    let numberOfSections = sut.numSections(in: collectionView!)
+                    let numberOfSections = sut.numSections(in: collectionView)
 
                     expect(numberOfSections) == 1
                 }
@@ -126,7 +133,7 @@ class HomeViewControllerTests: QuickSpec {
                     sut.displayHomeLaunches(viewModel: viewModel)
 
                     // When
-                    let cell = sut.collectionView(collectionView!, cellForItemAt: IndexPath(row: 0, section: 0))
+                    let cell = sut.collectionView(collectionView, cellForItemAt: IndexPath(row: 0, section: 0))
 
                     expect(cell).to(beAKindOf(HomeCollectionViewCell.self))
                 }
